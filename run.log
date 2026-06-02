@@ -279,3 +279,21 @@ Shrink model to first 2219 iterations.
 1600:	learn: 0.0153844	test: 0.0292617	best: 0.0292617 (1600)	total: 52.2s	remaining: 1m 18s
 1800:	learn: 0.0149888	test: 0.0291999	best: 0.0291998 (1782)	total: 58.1s	remaining: 1m 10s
 2000:	learn: 0.0146296	test: 0.0291437	best: 0.0291404 (1949)	total: 1m 3s	remaining: 1m 3s
+2200:	learn: 0.0142957	test: 0.0290835	best: 0.0290805 (2165)	total: 1m 10s	remaining: 57.2s
+2400:	learn: 0.0139794	test: 0.0290268	best: 0.0290229 (2370)	total: 1m 17s	remaining: 51.4s
+2600:	learn: 0.0136714	test: 0.0290051	best: 0.0290027 (2587)	total: 1m 23s	remaining: 45s
+2800:	learn: 0.0133859	test: 0.0290022	best: 0.0289679 (2663)	total: 1m 31s	remaining: 39s
+bestTest = 0.02896789917
+bestIteration = 2663
+Shrink model to first 2664 iterations.
+   seed123 fold 5: best_iter=2663  R²(raw)=0.96389
+   seed123 OOF R²=0.96030
+>> CatBoost (multi-seed mean) OOF R² (day-49, raw) = 0.96033  (score = 96.033)
+>> 5-fold XGBoost training
+  fold 1: best_iter=479  R²(raw)=0.96297
+  fold 2: best_iter=887  R²(raw)=0.95215
+  fold 3: best_iter=186  R²(raw)=0.95944
+  fold 4: best_iter=594  R²(raw)=0.95118
+  fold 5: best_iter=479  R²(raw)=0.96638
+>> XGBoost OOF R² (day-49, raw) = 0.95896  (score = 95.896)
+>> 5-fold LightGBM training (GPU)
