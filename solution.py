@@ -25,7 +25,10 @@ import pandas as pd
 from sklearn.model_selection import KFold
 from sklearn.metrics import r2_score
 from sklearn.linear_model import Ridge
-from sklearn.ensemble import HistGradientBoostingRegressor
+from sklearn.ensemble import HistGradientBoostingRegressor, ExtraTreesRegressor
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler
 from scipy.spatial import cKDTree
 from catboost import CatBoostRegressor
 import xgboost as xgb
@@ -411,10 +414,13 @@ cb_params = dict(
     devices="0",
 )
 
-# up-weight day-48 daytime rows (tslot >= 9) so training emphasises the test distribution
+# v8 weighting:
+#   - day-48 daytime rows (tslot >= 9): weight 1.5 (matches test time-of-day distribution)
+#   - day-49 train rows: weight 5.0 (force model to learn cross-day correction pattern)
 sample_weight = np.ones(len(X))
 sample_weight[(train["day"].values == 48) & (train["tslot"].values >= 9)] = 1.5
-print(f"   sample weights: {sample_weight.mean():.3f} mean, {(sample_weight>1).sum()} up-weighted rows")
+sample_weight[train["day"].values == 49] = 5.0
+print(f"   sample weights: mean={sample_weight.mean():.3f}, day48 day-time up={int((train['day'].values==48)&(train['tslot'].values>=9)).sum() if False else (sample_weight==1.5).sum()}, day49 up={(sample_weight==5.0).sum()}")
 
 SEEDS_CB = [42, 7, 123]
 oof_cb_seeds = []
@@ -586,20 +592,74 @@ print(f">> HistGBM OOF R² (day-49, raw) = {hgb_oof_r2:.5f}  (score = {max(0, 10
 
 
 # --------------------------------------------------------------------------- #
+# 5-fold ExtraTrees (sklearn, CPU) — random-split inductive bias              #
+# --------------------------------------------------------------------------- #
+print(">> 5-fold ExtraTrees training (CPU)")
+oof_et = np.full(len(X_xgb), np.nan)
+pred_et = np.zeros(len(X_test_xgb))
+imp = SimpleImputer(strategy="median")
+X_et = pd.DataFrame(imp.fit_transform(X_xgb), columns=X_xgb.columns).astype(np.float32)
+X_test_et = pd.DataFrame(imp.transform(X_test_xgb), columns=X_test_xgb.columns).astype(np.float32)
+
+for fold, (tr_d49, va_d49) in enumerate(kf.split(day49_idx), 1):
+    tr_idx = np.concatenate([day48_idx, day49_idx[tr_d49]])
+    va_idx = day49_idx[va_d49]
+    model = ExtraTreesRegressor(
+        n_estimators=400, max_depth=None, min_samples_leaf=4,
+        n_jobs=-1, random_state=RNG,
+    )
+    model.fit(X_et.iloc[tr_idx], y[tr_idx], sample_weight=sample_weight[tr_idx])
+    oof_et[va_idx] = model.predict(X_et.iloc[va_idx])
+    pred_et += model.predict(X_test_et) / kf.n_splits
+    print(f"  fold {fold}: R²(raw)={r2_score(y_raw[va_idx], oof_et[va_idx]):.5f}")
+et_oof_r2 = r2_score(y_raw[day49_idx], oof_et[day49_idx])
+print(f">> ExtraTrees OOF R² (day-49, raw) = {et_oof_r2:.5f}")
+
+
+# --------------------------------------------------------------------------- #
+# 5-fold k-NN regressor — distance-based, very different inductive bias       #
+# --------------------------------------------------------------------------- #
+print(">> 5-fold k-NN training")
+oof_knn = np.full(len(X_xgb), np.nan)
+pred_knn = np.zeros(len(X_test_xgb))
+# select numeric features that vary smoothly in space/time for k-NN
+knn_cols = ["lat", "lon", "tslot", "hour_sin", "hour_cos",
+            "d48_same_ts", "d48_roll5", "gh_d48_mean", "gh_hour_d48_mean",
+            "spatial_nb_d48"]
+imp_knn = SimpleImputer(strategy="median")
+sc = StandardScaler()
+X_knn_full = sc.fit_transform(imp_knn.fit_transform(X_xgb[knn_cols]))
+X_test_knn_full = sc.transform(imp_knn.transform(X_test_xgb[knn_cols]))
+
+for fold, (tr_d49, va_d49) in enumerate(kf.split(day49_idx), 1):
+    tr_idx = np.concatenate([day48_idx, day49_idx[tr_d49]])
+    va_idx = day49_idx[va_d49]
+    model = KNeighborsRegressor(n_neighbors=15, weights="distance", n_jobs=-1)
+    model.fit(X_knn_full[tr_idx], y[tr_idx])
+    oof_knn[va_idx] = model.predict(X_knn_full[va_idx])
+    pred_knn += model.predict(X_test_knn_full) / kf.n_splits
+    print(f"  fold {fold}: R²(raw)={r2_score(y_raw[va_idx], oof_knn[va_idx]):.5f}")
+knn_oof_r2 = r2_score(y_raw[day49_idx], oof_knn[day49_idx])
+print(f">> k-NN OOF R² (day-49, raw) = {knn_oof_r2:.5f}")
+
+
+# --------------------------------------------------------------------------- #
 # Blend                                                                       #
 # --------------------------------------------------------------------------- #
-# Ridge stacking: learn the optimal weights over the 4 base models on day-49 OOF
+# Ridge stacking: learn optimal weights over all 6 base models on day-49 OOF
 y49_raw = y_raw[day49_idx]
 oof_stack = np.column_stack([oof_cb[day49_idx], oof_xgb[day49_idx],
-                             oof_lgb[day49_idx], oof_hgb[day49_idx]])
-test_stack = np.column_stack([pred_cb, pred_xgb, pred_lgb, pred_hgb])
+                             oof_lgb[day49_idx], oof_hgb[day49_idx],
+                             oof_et[day49_idx], oof_knn[day49_idx]])
+test_stack = np.column_stack([pred_cb, pred_xgb, pred_lgb, pred_hgb, pred_et, pred_knn])
 
-# also report individual best-single
 single_r2 = {
     "cb":  r2_score(y49_raw, oof_cb[day49_idx]),
     "xgb": r2_score(y49_raw, oof_xgb[day49_idx]),
     "lgb": r2_score(y49_raw, oof_lgb[day49_idx]),
     "hgb": r2_score(y49_raw, oof_hgb[day49_idx]),
+    "et":  r2_score(y49_raw, oof_et[day49_idx]),
+    "knn": r2_score(y49_raw, oof_knn[day49_idx]),
 }
 print(">> single-model R²:", {k: round(v,5) for k,v in single_r2.items()})
 
@@ -607,14 +667,15 @@ meta = Ridge(alpha=0.1, fit_intercept=False, positive=True)
 meta.fit(oof_stack, y49_raw)
 oof_blend = meta.predict(oof_stack)
 blend_r2 = r2_score(y49_raw, oof_blend)
-print(f">> Ridge meta weights = {dict(zip(['cb','xgb','lgb','hgb'], np.round(meta.coef_,4)))}")
+print(f">> Ridge meta weights = {dict(zip(['cb','xgb','lgb','hgb','et','knn'], np.round(meta.coef_,4)))}")
 print(f">> Ridge-stacked OOF R² = {blend_r2:.5f}  (score = {max(0, 100*blend_r2):.3f})")
 
-# persist artifacts for offline iteration
 np.savez(
     os.path.join(DATA_DIR, "artifacts.npz"),
     oof_cb=oof_cb, oof_xgb=oof_xgb, oof_lgb=oof_lgb, oof_hgb=oof_hgb,
+    oof_et=oof_et, oof_knn=oof_knn,
     pred_cb=pred_cb, pred_xgb=pred_xgb, pred_lgb=pred_lgb, pred_hgb=pred_hgb,
+    pred_et=pred_et, pred_knn=pred_knn,
     y_raw=y_raw, day49_idx=day49_idx,
     meta_coef=meta.coef_,
 )

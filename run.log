@@ -11,289 +11,283 @@ train (77299, 11) test (41778, 10)
 >> feature matrix: (77299, 55) test: (41778, 55)
 >> 5-fold CatBoost training (val = day-49 train rows only)
    day48 rows: 69427  day49 rows: 7872
-   sample weights: 1.403 mean, 62312 up-weighted rows
+   sample weights: mean=1.810, day48 day-time up=62312, day49 up=7872
 >> CatBoost seed 1/3 (random_seed=42)
-0:	learn: 0.1365122	test: 0.1461214	best: 0.1461214 (0)	total: 31.5ms	remaining: 2m 5s
-200:	learn: 0.0208466	test: 0.0315094	best: 0.0315094 (200)	total: 5.05s	remaining: 1m 35s
-400:	learn: 0.0191313	test: 0.0304678	best: 0.0304678 (400)	total: 10.3s	remaining: 1m 32s
-600:	learn: 0.0181317	test: 0.0300694	best: 0.0300694 (600)	total: 15.5s	remaining: 1m 27s
-800:	learn: 0.0174144	test: 0.0297150	best: 0.0297150 (800)	total: 20.7s	remaining: 1m 22s
-1000:	learn: 0.0167968	test: 0.0294896	best: 0.0294887 (989)	total: 26.4s	remaining: 1m 19s
-1200:	learn: 0.0162477	test: 0.0294658	best: 0.0294469 (1107)	total: 31.8s	remaining: 1m 14s
-1400:	learn: 0.0158008	test: 0.0293048	best: 0.0293037 (1396)	total: 37.1s	remaining: 1m 8s
-1600:	learn: 0.0153834	test: 0.0292085	best: 0.0292085 (1600)	total: 42.3s	remaining: 1m 3s
-1800:	learn: 0.0149872	test: 0.0291620	best: 0.0291571 (1797)	total: 47.4s	remaining: 57.9s
-2000:	learn: 0.0146318	test: 0.0291165	best: 0.0291141 (1993)	total: 52.5s	remaining: 52.4s
-2200:	learn: 0.0142917	test: 0.0290630	best: 0.0290502 (2185)	total: 57.7s	remaining: 47.2s
-2400:	learn: 0.0139665	test: 0.0290229	best: 0.0290186 (2357)	total: 1m 2s	remaining: 41.9s
-2600:	learn: 0.0136502	test: 0.0289678	best: 0.0289678 (2600)	total: 1m 8s	remaining: 36.6s
-2800:	learn: 0.0133622	test: 0.0289514	best: 0.0289477 (2774)	total: 1m 13s	remaining: 31.4s
-3000:	learn: 0.0131013	test: 0.0289216	best: 0.0289177 (2907)	total: 1m 18s	remaining: 26.1s
-3200:	learn: 0.0128311	test: 0.0288886	best: 0.0288875 (3166)	total: 1m 23s	remaining: 20.9s
-3400:	learn: 0.0125831	test: 0.0288772	best: 0.0288753 (3353)	total: 1m 29s	remaining: 15.7s
-3600:	learn: 0.0123436	test: 0.0288078	best: 0.0288078 (3600)	total: 1m 34s	remaining: 10.5s
-3800:	learn: 0.0121151	test: 0.0287979	best: 0.0287939 (3796)	total: 1m 39s	remaining: 5.21s
-3999:	learn: 0.0118936	test: 0.0287652	best: 0.0287652 (3999)	total: 1m 44s	remaining: 0us
-bestTest = 0.02876522664
-bestIteration = 3999
-   seed42 fold 1: best_iter=3999  R²(raw)=0.96372
-0:	learn: 0.1366334	test: 0.1358873	best: 0.1358873 (0)	total: 24.8ms	remaining: 1m 39s
-200:	learn: 0.0209367	test: 0.0341671	best: 0.0341671 (200)	total: 4.98s	remaining: 1m 34s
-400:	learn: 0.0191458	test: 0.0328085	best: 0.0328080 (399)	total: 9.99s	remaining: 1m 29s
-600:	learn: 0.0181569	test: 0.0324027	best: 0.0323925 (587)	total: 15.1s	remaining: 1m 25s
-800:	learn: 0.0174026	test: 0.0321527	best: 0.0321527 (800)	total: 20.2s	remaining: 1m 20s
-1000:	learn: 0.0167730	test: 0.0320776	best: 0.0320634 (948)	total: 25.6s	remaining: 1m 16s
-1200:	learn: 0.0162819	test: 0.0318637	best: 0.0318559 (1191)	total: 31.1s	remaining: 1m 12s
-1400:	learn: 0.0158008	test: 0.0317950	best: 0.0317934 (1397)	total: 36.8s	remaining: 1m 8s
-1600:	learn: 0.0153821	test: 0.0317421	best: 0.0317285 (1569)	total: 43.5s	remaining: 1m 5s
-1800:	learn: 0.0149949	test: 0.0316150	best: 0.0316078 (1796)	total: 51.2s	remaining: 1m 2s
-2000:	learn: 0.0146289	test: 0.0315342	best: 0.0315206 (1977)	total: 58s	remaining: 57.9s
-2200:	learn: 0.0142892	test: 0.0314695	best: 0.0314627 (2196)	total: 1m 3s	remaining: 51.7s
-2400:	learn: 0.0139806	test: 0.0314189	best: 0.0314189 (2400)	total: 1m 8s	remaining: 45.6s
-2600:	learn: 0.0136942	test: 0.0314122	best: 0.0313963 (2530)	total: 1m 13s	remaining: 39.6s
-bestTest = 0.03139627765
-bestIteration = 2530
-Shrink model to first 2531 iterations.
-   seed42 fold 2: best_iter=2530  R²(raw)=0.95067
-0:	learn: 0.1365913	test: 0.1390532	best: 0.1390532 (0)	total: 25.6ms	remaining: 1m 42s
-200:	learn: 0.0209610	test: 0.0298176	best: 0.0298153 (199)	total: 4.97s	remaining: 1m 33s
-400:	learn: 0.0192181	test: 0.0289751	best: 0.0289613 (398)	total: 10.1s	remaining: 1m 30s
-600:	learn: 0.0181987	test: 0.0286265	best: 0.0286265 (600)	total: 15.1s	remaining: 1m 25s
-800:	learn: 0.0174396	test: 0.0285095	best: 0.0285005 (797)	total: 20.1s	remaining: 1m 20s
-1000:	learn: 0.0168234	test: 0.0283314	best: 0.0283314 (1000)	total: 25.2s	remaining: 1m 15s
-1200:	learn: 0.0162889	test: 0.0282930	best: 0.0282752 (1094)	total: 30.5s	remaining: 1m 11s
-1400:	learn: 0.0158266	test: 0.0282085	best: 0.0282085 (1400)	total: 35.6s	remaining: 1m 6s
-1600:	learn: 0.0153801	test: 0.0281953	best: 0.0281912 (1508)	total: 40.6s	remaining: 1m
-1800:	learn: 0.0150019	test: 0.0282101	best: 0.0281852 (1604)	total: 45.8s	remaining: 55.9s
-bestTest = 0.02818520638
-bestIteration = 1604
-Shrink model to first 1605 iterations.
-   seed42 fold 3: best_iter=1604  R²(raw)=0.96155
-0:	learn: 0.1367280	test: 0.1292350	best: 0.1292350 (0)	total: 24.9ms	remaining: 1m 39s
-200:	learn: 0.0210038	test: 0.0310115	best: 0.0310115 (200)	total: 4.99s	remaining: 1m 34s
-400:	learn: 0.0192492	test: 0.0298984	best: 0.0298984 (400)	total: 9.97s	remaining: 1m 29s
-600:	learn: 0.0182593	test: 0.0293578	best: 0.0293474 (597)	total: 15s	remaining: 1m 24s
-800:	learn: 0.0175097	test: 0.0290537	best: 0.0290537 (800)	total: 20.1s	remaining: 1m 20s
-1000:	learn: 0.0169110	test: 0.0288027	best: 0.0288015 (999)	total: 25.2s	remaining: 1m 15s
-1200:	learn: 0.0163881	test: 0.0286808	best: 0.0286792 (1170)	total: 30.5s	remaining: 1m 11s
-1400:	learn: 0.0158939	test: 0.0285769	best: 0.0285613 (1372)	total: 36.1s	remaining: 1m 7s
-1600:	learn: 0.0154560	test: 0.0285395	best: 0.0285295 (1588)	total: 41.3s	remaining: 1m 1s
-1800:	learn: 0.0150676	test: 0.0284902	best: 0.0284794 (1762)	total: 46.6s	remaining: 56.9s
-2000:	learn: 0.0146964	test: 0.0284648	best: 0.0284508 (1950)	total: 51.8s	remaining: 51.7s
-2200:	learn: 0.0143501	test: 0.0284350	best: 0.0284110 (2040)	total: 56.9s	remaining: 46.5s
-bestTest = 0.02841095667
-bestIteration = 2040
-Shrink model to first 2041 iterations.
-   seed42 fold 4: best_iter=2040  R²(raw)=0.95527
-0:	learn: 0.1364681	test: 0.1475132	best: 0.1475132 (0)	total: 29.7ms	remaining: 1m 58s
-200:	learn: 0.0209803	test: 0.0331462	best: 0.0331462 (200)	total: 5.3s	remaining: 1m 40s
-400:	learn: 0.0191686	test: 0.0311089	best: 0.0311089 (400)	total: 10.3s	remaining: 1m 32s
-600:	learn: 0.0182014	test: 0.0303802	best: 0.0303744 (595)	total: 16.5s	remaining: 1m 33s
-800:	learn: 0.0174479	test: 0.0299206	best: 0.0299033 (792)	total: 24s	remaining: 1m 35s
-1000:	learn: 0.0168468	test: 0.0296454	best: 0.0296390 (995)	total: 31.7s	remaining: 1m 34s
-1200:	learn: 0.0163056	test: 0.0295538	best: 0.0295373 (1180)	total: 39.2s	remaining: 1m 31s
-1400:	learn: 0.0158444	test: 0.0294234	best: 0.0294221 (1399)	total: 46.7s	remaining: 1m 26s
-1600:	learn: 0.0154092	test: 0.0293247	best: 0.0293247 (1600)	total: 54s	remaining: 1m 20s
-1800:	learn: 0.0150076	test: 0.0292630	best: 0.0292544 (1743)	total: 1m 1s	remaining: 1m 15s
-2000:	learn: 0.0146409	test: 0.0292145	best: 0.0292112 (1992)	total: 1m 9s	remaining: 1m 9s
-2200:	learn: 0.0143004	test: 0.0291525	best: 0.0291466 (2182)	total: 1m 16s	remaining: 1m 2s
-2400:	learn: 0.0139736	test: 0.0291620	best: 0.0291316 (2300)	total: 1m 24s	remaining: 56.2s
-bestTest = 0.02913163477
-bestIteration = 2300
-Shrink model to first 2301 iterations.
-   seed42 fold 5: best_iter=2300  R²(raw)=0.96348
-   seed42 OOF R²=0.95932
+0:	learn: 0.1366954	test: 0.1453624	best: 0.1453624 (0)	total: 53.5ms	remaining: 3m 33s
+200:	learn: 0.0216650	test: 0.0297668	best: 0.0297668 (200)	total: 7.44s	remaining: 2m 20s
+400:	learn: 0.0195451	test: 0.0291537	best: 0.0291512 (398)	total: 14.6s	remaining: 2m 10s
+600:	learn: 0.0182171	test: 0.0289246	best: 0.0289244 (596)	total: 21s	remaining: 1m 58s
+800:	learn: 0.0173279	test: 0.0288183	best: 0.0288152 (796)	total: 26.6s	remaining: 1m 46s
+1000:	learn: 0.0166071	test: 0.0286644	best: 0.0286608 (998)	total: 31.9s	remaining: 1m 35s
+1200:	learn: 0.0159669	test: 0.0285193	best: 0.0285109 (1188)	total: 37.2s	remaining: 1m 26s
+1400:	learn: 0.0154175	test: 0.0284430	best: 0.0284411 (1383)	total: 42.5s	remaining: 1m 18s
+bestTest = 0.02844107634
+bestIteration = 1383
+Shrink model to first 1384 iterations.
+   seed42 fold 1: best_iter=1383  R²(raw)=0.96454
+0:	learn: 0.1372733	test: 0.1352171	best: 0.1352171 (0)	total: 39.8ms	remaining: 2m 39s
+200:	learn: 0.0217508	test: 0.0321966	best: 0.0321966 (200)	total: 7.5s	remaining: 2m 21s
+400:	learn: 0.0195525	test: 0.0315016	best: 0.0315016 (400)	total: 14.9s	remaining: 2m 13s
+600:	learn: 0.0182351	test: 0.0312772	best: 0.0312665 (593)	total: 22.2s	remaining: 2m 5s
+800:	learn: 0.0172949	test: 0.0311054	best: 0.0311051 (797)	total: 29.7s	remaining: 1m 58s
+1000:	learn: 0.0165882	test: 0.0310665	best: 0.0310611 (962)	total: 37s	remaining: 1m 50s
+1200:	learn: 0.0159807	test: 0.0309614	best: 0.0309614 (1200)	total: 44.5s	remaining: 1m 43s
+1400:	learn: 0.0154486	test: 0.0309288	best: 0.0309288 (1400)	total: 51.9s	remaining: 1m 36s
+1600:	learn: 0.0149836	test: 0.0308715	best: 0.0308707 (1585)	total: 59.5s	remaining: 1m 29s
+1800:	learn: 0.0145551	test: 0.0308394	best: 0.0308298 (1709)	total: 1m 5s	remaining: 1m 19s
+2000:	learn: 0.0141566	test: 0.0307889	best: 0.0307819 (1960)	total: 1m 10s	remaining: 1m 10s
+2200:	learn: 0.0138088	test: 0.0307620	best: 0.0307593 (2144)	total: 1m 15s	remaining: 1m 1s
+2400:	learn: 0.0134746	test: 0.0307263	best: 0.0307263 (2400)	total: 1m 21s	remaining: 54s
+2600:	learn: 0.0131602	test: 0.0306908	best: 0.0306873 (2534)	total: 1m 26s	remaining: 46.5s
+2800:	learn: 0.0128637	test: 0.0306852	best: 0.0306825 (2759)	total: 1m 31s	remaining: 39.2s
+3000:	learn: 0.0125857	test: 0.0306910	best: 0.0306739 (2921)	total: 1m 37s	remaining: 32.4s
+bestTest = 0.03067390948
+bestIteration = 2921
+Shrink model to first 2922 iterations.
+   seed42 fold 2: best_iter=2921  R²(raw)=0.95291
+0:	learn: 0.1371141	test: 0.1377749	best: 0.1377749 (0)	total: 23.9ms	remaining: 1m 35s
+200:	learn: 0.0216499	test: 0.0283914	best: 0.0283914 (200)	total: 5.05s	remaining: 1m 35s
+400:	learn: 0.0194953	test: 0.0277313	best: 0.0277313 (400)	total: 10.1s	remaining: 1m 31s
+600:	learn: 0.0182206	test: 0.0274921	best: 0.0274875 (598)	total: 15.1s	remaining: 1m 25s
+800:	learn: 0.0172961	test: 0.0274044	best: 0.0273960 (799)	total: 20s	remaining: 1m 19s
+1000:	learn: 0.0165745	test: 0.0273137	best: 0.0273087 (997)	total: 25s	remaining: 1m 15s
+bestTest = 0.0273086633
+bestIteration = 997
+Shrink model to first 998 iterations.
+   seed42 fold 3: best_iter=997  R²(raw)=0.96390
+0:	learn: 0.1376613	test: 0.1286367	best: 0.1286367 (0)	total: 31.7ms	remaining: 2m 6s
+200:	learn: 0.0217194	test: 0.0302923	best: 0.0302772 (196)	total: 5.32s	remaining: 1m 40s
+400:	learn: 0.0195792	test: 0.0295636	best: 0.0295386 (396)	total: 10.9s	remaining: 1m 38s
+600:	learn: 0.0183667	test: 0.0291968	best: 0.0291949 (598)	total: 16.2s	remaining: 1m 31s
+800:	learn: 0.0174552	test: 0.0291291	best: 0.0291076 (772)	total: 21.3s	remaining: 1m 25s
+1000:	learn: 0.0167032	test: 0.0290521	best: 0.0290521 (1000)	total: 26.3s	remaining: 1m 18s
+1200:	learn: 0.0160839	test: 0.0290018	best: 0.0290018 (1200)	total: 31.4s	remaining: 1m 13s
+1400:	learn: 0.0155462	test: 0.0289525	best: 0.0289525 (1400)	total: 36.6s	remaining: 1m 7s
+1600:	learn: 0.0150711	test: 0.0289238	best: 0.0289238 (1600)	total: 42.3s	remaining: 1m 3s
+1800:	learn: 0.0146470	test: 0.0289233	best: 0.0288971 (1715)	total: 47.8s	remaining: 58.3s
+bestTest = 0.02889714942
+bestIteration = 1715
+Shrink model to first 1716 iterations.
+   seed42 fold 4: best_iter=1715  R²(raw)=0.95373
+0:	learn: 0.1366277	test: 0.1463873	best: 0.1463873 (0)	total: 27.1ms	remaining: 1m 48s
+200:	learn: 0.0217646	test: 0.0311971	best: 0.0311971 (200)	total: 5.82s	remaining: 1m 49s
+400:	learn: 0.0195834	test: 0.0299697	best: 0.0299692 (399)	total: 11.4s	remaining: 1m 42s
+600:	learn: 0.0182842	test: 0.0295619	best: 0.0295578 (596)	total: 16.4s	remaining: 1m 32s
+800:	learn: 0.0173671	test: 0.0293358	best: 0.0293345 (784)	total: 21.5s	remaining: 1m 25s
+1000:	learn: 0.0166560	test: 0.0291088	best: 0.0291066 (999)	total: 26.6s	remaining: 1m 19s
+1200:	learn: 0.0160297	test: 0.0289302	best: 0.0289293 (1199)	total: 31.6s	remaining: 1m 13s
+1400:	learn: 0.0154913	test: 0.0289025	best: 0.0288866 (1283)	total: 36.6s	remaining: 1m 7s
+bestTest = 0.02888661803
+bestIteration = 1283
+Shrink model to first 1284 iterations.
+   seed42 fold 5: best_iter=1283  R²(raw)=0.96409
+   seed42 OOF R²=0.96026
 >> CatBoost seed 2/3 (random_seed=7)
-0:	learn: 0.1364196	test: 0.1456288	best: 0.1456288 (0)	total: 23.1ms	remaining: 1m 32s
-200:	learn: 0.0210051	test: 0.0319568	best: 0.0319568 (200)	total: 4.97s	remaining: 1m 33s
-400:	learn: 0.0191270	test: 0.0306690	best: 0.0306690 (400)	total: 10.2s	remaining: 1m 31s
-600:	learn: 0.0181247	test: 0.0301815	best: 0.0301551 (586)	total: 15.3s	remaining: 1m 26s
-800:	learn: 0.0173478	test: 0.0298467	best: 0.0298409 (796)	total: 20.4s	remaining: 1m 21s
-1000:	learn: 0.0167253	test: 0.0296253	best: 0.0296195 (996)	total: 25.6s	remaining: 1m 16s
-1200:	learn: 0.0162049	test: 0.0294495	best: 0.0294495 (1200)	total: 30.8s	remaining: 1m 11s
-1400:	learn: 0.0157429	test: 0.0292883	best: 0.0292839 (1397)	total: 36.2s	remaining: 1m 7s
-1600:	learn: 0.0153067	test: 0.0291506	best: 0.0291484 (1597)	total: 41.3s	remaining: 1m 1s
-1800:	learn: 0.0149317	test: 0.0290291	best: 0.0290291 (1800)	total: 46.4s	remaining: 56.7s
-2000:	learn: 0.0145588	test: 0.0289614	best: 0.0289614 (2000)	total: 51.6s	remaining: 51.5s
-2200:	learn: 0.0142153	test: 0.0289400	best: 0.0289387 (2198)	total: 56.7s	remaining: 46.3s
-2400:	learn: 0.0138987	test: 0.0288788	best: 0.0288777 (2393)	total: 1m 1s	remaining: 41.2s
-2600:	learn: 0.0135951	test: 0.0288715	best: 0.0288621 (2555)	total: 1m 7s	remaining: 36.1s
-2800:	learn: 0.0133049	test: 0.0288734	best: 0.0288614 (2691)	total: 1m 12s	remaining: 31s
-3000:	learn: 0.0130314	test: 0.0288337	best: 0.0288304 (2979)	total: 1m 17s	remaining: 25.9s
-3200:	learn: 0.0127822	test: 0.0288165	best: 0.0288160 (3150)	total: 1m 22s	remaining: 20.7s
-3400:	learn: 0.0125330	test: 0.0287878	best: 0.0287860 (3392)	total: 1m 28s	remaining: 15.5s
-3600:	learn: 0.0122938	test: 0.0287652	best: 0.0287642 (3574)	total: 1m 33s	remaining: 10.3s
-3800:	learn: 0.0120521	test: 0.0287511	best: 0.0287431 (3706)	total: 1m 38s	remaining: 5.16s
-3999:	learn: 0.0118341	test: 0.0287166	best: 0.0287144 (3989)	total: 1m 43s	remaining: 0us
-bestTest = 0.02871438547
-bestIteration = 3989
-Shrink model to first 3990 iterations.
-   seed7 fold 1: best_iter=3989  R²(raw)=0.96385
-0:	learn: 0.1365684	test: 0.1354706	best: 0.1354706 (0)	total: 25.4ms	remaining: 1m 41s
-200:	learn: 0.0209716	test: 0.0340347	best: 0.0340347 (200)	total: 5.04s	remaining: 1m 35s
-400:	learn: 0.0191540	test: 0.0324100	best: 0.0324034 (399)	total: 9.98s	remaining: 1m 29s
-600:	learn: 0.0181144	test: 0.0317096	best: 0.0317060 (597)	total: 15s	remaining: 1m 24s
-800:	learn: 0.0173452	test: 0.0313773	best: 0.0313691 (793)	total: 20.3s	remaining: 1m 21s
-1000:	learn: 0.0167234	test: 0.0311492	best: 0.0311390 (993)	total: 25.6s	remaining: 1m 16s
-1200:	learn: 0.0162018	test: 0.0310248	best: 0.0310229 (1196)	total: 30.7s	remaining: 1m 11s
-1400:	learn: 0.0157327	test: 0.0308923	best: 0.0308902 (1399)	total: 35.8s	remaining: 1m 6s
-1600:	learn: 0.0153144	test: 0.0308847	best: 0.0308760 (1539)	total: 41s	remaining: 1m 1s
-1800:	learn: 0.0149507	test: 0.0308244	best: 0.0308224 (1728)	total: 46.2s	remaining: 56.4s
-2000:	learn: 0.0145888	test: 0.0307786	best: 0.0307616 (1955)	total: 51.4s	remaining: 51.3s
-bestTest = 0.03076158096
-bestIteration = 1955
-Shrink model to first 1956 iterations.
-   seed7 fold 2: best_iter=1955  R²(raw)=0.95264
-0:	learn: 0.1365285	test: 0.1383866	best: 0.1383866 (0)	total: 31.1ms	remaining: 2m 4s
-200:	learn: 0.0209471	test: 0.0297225	best: 0.0297225 (200)	total: 6.76s	remaining: 2m 7s
-400:	learn: 0.0191787	test: 0.0288654	best: 0.0288646 (393)	total: 13.8s	remaining: 2m 3s
-600:	learn: 0.0181364	test: 0.0284669	best: 0.0284635 (595)	total: 20.6s	remaining: 1m 56s
-800:	learn: 0.0173763	test: 0.0282211	best: 0.0282211 (800)	total: 25.7s	remaining: 1m 42s
-1000:	learn: 0.0167741	test: 0.0280919	best: 0.0280917 (999)	total: 30.9s	remaining: 1m 32s
-1200:	learn: 0.0162292	test: 0.0280300	best: 0.0280300 (1200)	total: 37.7s	remaining: 1m 27s
-1400:	learn: 0.0157648	test: 0.0279618	best: 0.0279585 (1397)	total: 44.8s	remaining: 1m 23s
-1600:	learn: 0.0153139	test: 0.0279440	best: 0.0279427 (1599)	total: 52.5s	remaining: 1m 18s
-1800:	learn: 0.0149244	test: 0.0279389	best: 0.0279131 (1634)	total: 1m 1s	remaining: 1m 14s
-bestTest = 0.02791314767
-bestIteration = 1634
-Shrink model to first 1635 iterations.
-   seed7 fold 3: best_iter=1634  R²(raw)=0.96229
-0:	learn: 0.1366656	test: 0.1287203	best: 0.1287203 (0)	total: 37.3ms	remaining: 2m 28s
-200:	learn: 0.0209369	test: 0.0307898	best: 0.0307898 (200)	total: 9.15s	remaining: 2m 53s
-400:	learn: 0.0191592	test: 0.0293504	best: 0.0293504 (400)	total: 16.3s	remaining: 2m 26s
-600:	learn: 0.0181176	test: 0.0286688	best: 0.0286670 (599)	total: 24.4s	remaining: 2m 17s
-800:	learn: 0.0173890	test: 0.0284179	best: 0.0284179 (800)	total: 32.5s	remaining: 2m 9s
-1000:	learn: 0.0167755	test: 0.0283188	best: 0.0283178 (999)	total: 40.3s	remaining: 2m
-1200:	learn: 0.0162628	test: 0.0281169	best: 0.0281152 (1197)	total: 48.2s	remaining: 1m 52s
-1400:	learn: 0.0158042	test: 0.0280432	best: 0.0280277 (1291)	total: 56.1s	remaining: 1m 44s
-1600:	learn: 0.0153720	test: 0.0279477	best: 0.0279468 (1593)	total: 1m 3s	remaining: 1m 35s
-1800:	learn: 0.0149941	test: 0.0279576	best: 0.0279277 (1711)	total: 1m 11s	remaining: 1m 26s
-bestTest = 0.02792772238
-bestIteration = 1711
-Shrink model to first 1712 iterations.
-   seed7 fold 4: best_iter=1711  R²(raw)=0.95678
-0:	learn: 0.1364052	test: 0.1468810	best: 0.1468810 (0)	total: 33ms	remaining: 2m 11s
-200:	learn: 0.0209825	test: 0.0331658	best: 0.0331658 (200)	total: 6.98s	remaining: 2m 11s
-400:	learn: 0.0191795	test: 0.0309690	best: 0.0309591 (398)	total: 14.2s	remaining: 2m 7s
-600:	learn: 0.0181454	test: 0.0302488	best: 0.0302488 (600)	total: 21.4s	remaining: 2m 1s
-800:	learn: 0.0173996	test: 0.0298685	best: 0.0298681 (798)	total: 29.1s	remaining: 1m 56s
-1000:	learn: 0.0167713	test: 0.0296235	best: 0.0296155 (994)	total: 36.5s	remaining: 1m 49s
-1200:	learn: 0.0162579	test: 0.0294978	best: 0.0294564 (1170)	total: 44.1s	remaining: 1m 42s
-1400:	learn: 0.0157846	test: 0.0293861	best: 0.0293758 (1385)	total: 51.9s	remaining: 1m 36s
-1600:	learn: 0.0153669	test: 0.0293472	best: 0.0293081 (1549)	total: 59.5s	remaining: 1m 29s
-bestTest = 0.02930809494
-bestIteration = 1549
-Shrink model to first 1550 iterations.
-   seed7 fold 5: best_iter=1549  R²(raw)=0.96304
-   seed7 OOF R²=0.96003
+0:	learn: 0.1366328	test: 0.1448799	best: 0.1448799 (0)	total: 23.9ms	remaining: 1m 35s
+200:	learn: 0.0216058	test: 0.0299372	best: 0.0299293 (199)	total: 5.01s	remaining: 1m 34s
+400:	learn: 0.0194637	test: 0.0292645	best: 0.0292543 (397)	total: 9.95s	remaining: 1m 29s
+600:	learn: 0.0182173	test: 0.0291114	best: 0.0291096 (597)	total: 15s	remaining: 1m 24s
+800:	learn: 0.0172892	test: 0.0289791	best: 0.0289628 (771)	total: 20s	remaining: 1m 20s
+1000:	learn: 0.0165554	test: 0.0288624	best: 0.0288614 (983)	total: 25.2s	remaining: 1m 15s
+1200:	learn: 0.0159563	test: 0.0287784	best: 0.0287707 (1136)	total: 30.6s	remaining: 1m 11s
+1400:	learn: 0.0154315	test: 0.0287392	best: 0.0287248 (1353)	total: 36s	remaining: 1m 6s
+1600:	learn: 0.0149602	test: 0.0286817	best: 0.0286791 (1594)	total: 41.5s	remaining: 1m 2s
+1800:	learn: 0.0145355	test: 0.0286307	best: 0.0286265 (1793)	total: 46.8s	remaining: 57.1s
+2000:	learn: 0.0141475	test: 0.0285937	best: 0.0285937 (2000)	total: 51.9s	remaining: 51.9s
+2200:	learn: 0.0137892	test: 0.0285531	best: 0.0285531 (2200)	total: 57.2s	remaining: 46.7s
+2400:	learn: 0.0134625	test: 0.0285198	best: 0.0285156 (2396)	total: 1m 2s	remaining: 41.5s
+2600:	learn: 0.0131518	test: 0.0284846	best: 0.0284768 (2529)	total: 1m 7s	remaining: 36.4s
+2800:	learn: 0.0128594	test: 0.0284760	best: 0.0284723 (2686)	total: 1m 13s	remaining: 31.3s
+3000:	learn: 0.0125763	test: 0.0284393	best: 0.0284393 (3000)	total: 1m 19s	remaining: 26.4s
+3200:	learn: 0.0123087	test: 0.0284165	best: 0.0284118 (3126)	total: 1m 24s	remaining: 21.2s
+bestTest = 0.02841182495
+bestIteration = 3126
+Shrink model to first 3127 iterations.
+   seed7 fold 1: best_iter=3126  R²(raw)=0.96461
+0:	learn: 0.1372222	test: 0.1353611	best: 0.1353611 (0)	total: 21.8ms	remaining: 1m 27s
+200:	learn: 0.0216748	test: 0.0318360	best: 0.0318360 (200)	total: 4.91s	remaining: 1m 32s
+400:	learn: 0.0194792	test: 0.0309244	best: 0.0309244 (400)	total: 9.9s	remaining: 1m 28s
+600:	learn: 0.0181599	test: 0.0307765	best: 0.0307327 (548)	total: 15s	remaining: 1m 24s
+bestTest = 0.03073266158
+bestIteration = 548
+Shrink model to first 549 iterations.
+   seed7 fold 2: best_iter=548  R²(raw)=0.95273
+0:	learn: 0.1370631	test: 0.1380077	best: 0.1380077 (0)	total: 22.7ms	remaining: 1m 30s
+200:	learn: 0.0215498	test: 0.0285806	best: 0.0285806 (200)	total: 5.08s	remaining: 1m 35s
+400:	learn: 0.0193893	test: 0.0280758	best: 0.0280638 (396)	total: 10.2s	remaining: 1m 31s
+600:	learn: 0.0180926	test: 0.0278497	best: 0.0278493 (597)	total: 15.3s	remaining: 1m 26s
+800:	learn: 0.0171687	test: 0.0278315	best: 0.0278290 (726)	total: 20.3s	remaining: 1m 20s
+1000:	learn: 0.0164424	test: 0.0278576	best: 0.0278125 (917)	total: 25.3s	remaining: 1m 15s
+bestTest = 0.02781252157
+bestIteration = 917
+Shrink model to first 918 iterations.
+   seed7 fold 3: best_iter=917  R²(raw)=0.96256
+0:	learn: 0.1375983	test: 0.1285824	best: 0.1285824 (0)	total: 35.9ms	remaining: 2m 23s
+200:	learn: 0.0216265	test: 0.0290843	best: 0.0290843 (200)	total: 7.21s	remaining: 2m 16s
+400:	learn: 0.0194904	test: 0.0281594	best: 0.0281594 (388)	total: 14.3s	remaining: 2m 7s
+600:	learn: 0.0182392	test: 0.0278690	best: 0.0278690 (600)	total: 21.7s	remaining: 2m 2s
+800:	learn: 0.0173036	test: 0.0277234	best: 0.0277129 (781)	total: 29.3s	remaining: 1m 56s
+1000:	learn: 0.0165591	test: 0.0276442	best: 0.0276420 (998)	total: 36.3s	remaining: 1m 48s
+1200:	learn: 0.0159645	test: 0.0276241	best: 0.0276161 (1102)	total: 43.9s	remaining: 1m 42s
+1400:	learn: 0.0154297	test: 0.0276165	best: 0.0276020 (1384)	total: 51.4s	remaining: 1m 35s
+1600:	learn: 0.0149497	test: 0.0275163	best: 0.0275163 (1599)	total: 59.1s	remaining: 1m 28s
+1800:	learn: 0.0145315	test: 0.0274580	best: 0.0274564 (1797)	total: 1m 6s	remaining: 1m 21s
+2000:	learn: 0.0141462	test: 0.0274089	best: 0.0274037 (1982)	total: 1m 14s	remaining: 1m 14s
+2200:	learn: 0.0137916	test: 0.0273818	best: 0.0273726 (2185)	total: 1m 22s	remaining: 1m 7s
+2400:	learn: 0.0134498	test: 0.0273111	best: 0.0273111 (2400)	total: 1m 29s	remaining: 59.7s
+2600:	learn: 0.0131405	test: 0.0272976	best: 0.0272904 (2565)	total: 1m 36s	remaining: 52.1s
+2800:	learn: 0.0128479	test: 0.0272671	best: 0.0272668 (2799)	total: 1m 44s	remaining: 44.5s
+3000:	learn: 0.0125732	test: 0.0272508	best: 0.0272411 (2966)	total: 1m 50s	remaining: 36.9s
+3200:	learn: 0.0123104	test: 0.0272026	best: 0.0271995 (3156)	total: 1m 58s	remaining: 29.6s
+bestTest = 0.02719946752
+bestIteration = 3156
+Shrink model to first 3157 iterations.
+   seed7 fold 4: best_iter=3156  R²(raw)=0.95901
+0:	learn: 0.1365789	test: 0.1463395	best: 0.1463395 (0)	total: 34.2ms	remaining: 2m 16s
+200:	learn: 0.0216851	test: 0.0313611	best: 0.0313611 (200)	total: 6.87s	remaining: 2m 9s
+400:	learn: 0.0194603	test: 0.0300686	best: 0.0300686 (400)	total: 14.3s	remaining: 2m 8s
+600:	learn: 0.0181709	test: 0.0298147	best: 0.0298011 (594)	total: 20.6s	remaining: 1m 56s
+800:	learn: 0.0172715	test: 0.0296257	best: 0.0296248 (786)	total: 25.7s	remaining: 1m 42s
+1000:	learn: 0.0164946	test: 0.0294681	best: 0.0294659 (984)	total: 31.8s	remaining: 1m 35s
+1200:	learn: 0.0158909	test: 0.0293990	best: 0.0293990 (1200)	total: 39.1s	remaining: 1m 31s
+1400:	learn: 0.0153458	test: 0.0292641	best: 0.0292591 (1383)	total: 46.6s	remaining: 1m 26s
+1600:	learn: 0.0148860	test: 0.0292252	best: 0.0292221 (1597)	total: 54.2s	remaining: 1m 21s
+1800:	learn: 0.0144737	test: 0.0291593	best: 0.0291593 (1800)	total: 1m 2s	remaining: 1m 15s
+2000:	learn: 0.0140943	test: 0.0291090	best: 0.0291083 (1997)	total: 1m 9s	remaining: 1m 9s
+2200:	learn: 0.0137370	test: 0.0290829	best: 0.0290791 (2197)	total: 1m 17s	remaining: 1m 3s
+2400:	learn: 0.0134011	test: 0.0290453	best: 0.0290429 (2395)	total: 1m 25s	remaining: 57.1s
+2600:	learn: 0.0130975	test: 0.0289639	best: 0.0289596 (2584)	total: 1m 33s	remaining: 50.2s
+2800:	learn: 0.0127992	test: 0.0289418	best: 0.0289385 (2740)	total: 1m 40s	remaining: 43.2s
+3000:	learn: 0.0125319	test: 0.0289346	best: 0.0289325 (2915)	total: 1m 46s	remaining: 35.6s
+3200:	learn: 0.0122765	test: 0.0289138	best: 0.0289002 (3100)	total: 1m 52s	remaining: 28s
+bestTest = 0.02890020915
+bestIteration = 3100
+Shrink model to first 3101 iterations.
+   seed7 fold 5: best_iter=3100  R²(raw)=0.96406
+   seed7 OOF R²=0.96088
 >> CatBoost seed 3/3 (random_seed=123)
-0:	learn: 0.1364483	test: 0.1460802	best: 0.1460802 (0)	total: 39.6ms	remaining: 2m 38s
-200:	learn: 0.0209925	test: 0.0316332	best: 0.0316332 (200)	total: 7.02s	remaining: 2m 12s
-400:	learn: 0.0191523	test: 0.0302263	best: 0.0302263 (400)	total: 13.9s	remaining: 2m 4s
-600:	learn: 0.0181224	test: 0.0296776	best: 0.0296776 (600)	total: 21s	remaining: 1m 58s
-800:	learn: 0.0173475	test: 0.0293516	best: 0.0293456 (776)	total: 28s	remaining: 1m 51s
-1000:	learn: 0.0167176	test: 0.0291819	best: 0.0291815 (994)	total: 35.1s	remaining: 1m 45s
-1200:	learn: 0.0161647	test: 0.0289739	best: 0.0289658 (1196)	total: 42.2s	remaining: 1m 38s
-1400:	learn: 0.0156869	test: 0.0288941	best: 0.0288933 (1398)	total: 49.3s	remaining: 1m 31s
-1600:	learn: 0.0152761	test: 0.0288157	best: 0.0288085 (1590)	total: 56.9s	remaining: 1m 25s
-1800:	learn: 0.0148997	test: 0.0286436	best: 0.0286436 (1794)	total: 1m 3s	remaining: 1m 18s
-2000:	learn: 0.0145315	test: 0.0285299	best: 0.0285294 (1996)	total: 1m 11s	remaining: 1m 11s
-2200:	learn: 0.0142124	test: 0.0284700	best: 0.0284622 (2190)	total: 1m 18s	remaining: 1m 4s
-2400:	learn: 0.0138818	test: 0.0284339	best: 0.0284334 (2398)	total: 1m 25s	remaining: 57s
-2600:	learn: 0.0135924	test: 0.0284115	best: 0.0284058 (2573)	total: 1m 32s	remaining: 50s
-2800:	learn: 0.0133006	test: 0.0283893	best: 0.0283839 (2751)	total: 1m 40s	remaining: 42.8s
-3000:	learn: 0.0130294	test: 0.0283507	best: 0.0283476 (2995)	total: 1m 47s	remaining: 35.6s
-3200:	learn: 0.0127730	test: 0.0282920	best: 0.0282881 (3146)	total: 1m 52s	remaining: 28.1s
-3400:	learn: 0.0125212	test: 0.0282570	best: 0.0282498 (3389)	total: 1m 57s	remaining: 20.8s
-3600:	learn: 0.0122840	test: 0.0282485	best: 0.0282364 (3565)	total: 2m 3s	remaining: 13.7s
-3800:	learn: 0.0120541	test: 0.0282179	best: 0.0282111 (3758)	total: 2m 8s	remaining: 6.74s
-3999:	learn: 0.0118302	test: 0.0282043	best: 0.0282005 (3906)	total: 2m 14s	remaining: 0us
-bestTest = 0.02820051977
-bestIteration = 3906
-Shrink model to first 3907 iterations.
-   seed123 fold 1: best_iter=3906  R²(raw)=0.96513
-0:	learn: 0.1365953	test: 0.1358225	best: 0.1358225 (0)	total: 26.4ms	remaining: 1m 45s
-200:	learn: 0.0209605	test: 0.0344354	best: 0.0344354 (200)	total: 5.12s	remaining: 1m 36s
-400:	learn: 0.0191205	test: 0.0329332	best: 0.0329329 (399)	total: 10.3s	remaining: 1m 32s
-600:	learn: 0.0180819	test: 0.0322575	best: 0.0322570 (597)	total: 15.5s	remaining: 1m 27s
-800:	learn: 0.0173164	test: 0.0319726	best: 0.0319696 (791)	total: 21.1s	remaining: 1m 24s
-1000:	learn: 0.0167252	test: 0.0316830	best: 0.0316830 (1000)	total: 26.3s	remaining: 1m 18s
-1200:	learn: 0.0162111	test: 0.0315471	best: 0.0315454 (1197)	total: 31.5s	remaining: 1m 13s
-1400:	learn: 0.0157361	test: 0.0314774	best: 0.0314727 (1389)	total: 36.9s	remaining: 1m 8s
-1600:	learn: 0.0153162	test: 0.0314147	best: 0.0314145 (1599)	total: 42.4s	remaining: 1m 3s
-1800:	learn: 0.0149275	test: 0.0313571	best: 0.0313565 (1799)	total: 47.8s	remaining: 58.3s
-2000:	learn: 0.0145669	test: 0.0313205	best: 0.0313020 (1920)	total: 53.1s	remaining: 53s
-2200:	learn: 0.0142286	test: 0.0312425	best: 0.0312410 (2199)	total: 58.3s	remaining: 47.7s
-2400:	learn: 0.0139061	test: 0.0311967	best: 0.0311896 (2388)	total: 1m 3s	remaining: 42.5s
-2600:	learn: 0.0136127	test: 0.0311724	best: 0.0311624 (2533)	total: 1m 8s	remaining: 37.1s
-2800:	learn: 0.0133176	test: 0.0311346	best: 0.0311344 (2799)	total: 1m 14s	remaining: 31.7s
-3000:	learn: 0.0130415	test: 0.0310930	best: 0.0310898 (2950)	total: 1m 19s	remaining: 26.4s
-3200:	learn: 0.0127817	test: 0.0310741	best: 0.0310648 (3175)	total: 1m 24s	remaining: 21.2s
-3400:	learn: 0.0125405	test: 0.0310386	best: 0.0310386 (3400)	total: 1m 30s	remaining: 15.9s
-3600:	learn: 0.0122967	test: 0.0310398	best: 0.0310313 (3483)	total: 1m 35s	remaining: 10.6s
-3800:	learn: 0.0120716	test: 0.0310151	best: 0.0310148 (3798)	total: 1m 40s	remaining: 5.28s
-3999:	learn: 0.0118487	test: 0.0309730	best: 0.0309705 (3996)	total: 1m 46s	remaining: 0us
-bestTest = 0.03097046334
-bestIteration = 3996
-Shrink model to first 3997 iterations.
-   seed123 fold 2: best_iter=3996  R²(raw)=0.95200
-0:	learn: 0.1365567	test: 0.1390091	best: 0.1390091 (0)	total: 30.2ms	remaining: 2m
-200:	learn: 0.0209027	test: 0.0297362	best: 0.0297345 (199)	total: 4.94s	remaining: 1m 33s
-400:	learn: 0.0191838	test: 0.0288261	best: 0.0288261 (400)	total: 10.1s	remaining: 1m 30s
-600:	learn: 0.0181321	test: 0.0283408	best: 0.0283408 (600)	total: 15s	remaining: 1m 25s
-800:	learn: 0.0174061	test: 0.0281799	best: 0.0281645 (778)	total: 20.2s	remaining: 1m 20s
-1000:	learn: 0.0167767	test: 0.0280239	best: 0.0279995 (970)	total: 25.4s	remaining: 1m 16s
-1200:	learn: 0.0162230	test: 0.0279914	best: 0.0279762 (1109)	total: 30.6s	remaining: 1m 11s
-1400:	learn: 0.0157492	test: 0.0279247	best: 0.0279207 (1370)	total: 35.6s	remaining: 1m 6s
-1600:	learn: 0.0153240	test: 0.0279007	best: 0.0278996 (1597)	total: 40.8s	remaining: 1m 1s
-1800:	learn: 0.0149451	test: 0.0279101	best: 0.0278994 (1610)	total: 45.8s	remaining: 56s
-bestTest = 0.02789941639
-bestIteration = 1610
-Shrink model to first 1611 iterations.
-   seed123 fold 3: best_iter=1610  R²(raw)=0.96233
-0:	learn: 0.1366811	test: 0.1289608	best: 0.1289608 (0)	total: 42.8ms	remaining: 2m 51s
-200:	learn: 0.0209449	test: 0.0307586	best: 0.0307586 (200)	total: 4.86s	remaining: 1m 31s
-400:	learn: 0.0191956	test: 0.0293590	best: 0.0293467 (398)	total: 9.98s	remaining: 1m 29s
-600:	learn: 0.0181892	test: 0.0287925	best: 0.0287925 (600)	total: 15.1s	remaining: 1m 25s
-800:	learn: 0.0174229	test: 0.0286398	best: 0.0286332 (787)	total: 20.2s	remaining: 1m 20s
-1000:	learn: 0.0168297	test: 0.0284623	best: 0.0284525 (997)	total: 25.4s	remaining: 1m 16s
-1200:	learn: 0.0162951	test: 0.0283464	best: 0.0283435 (1195)	total: 30.6s	remaining: 1m 11s
-1400:	learn: 0.0158579	test: 0.0282755	best: 0.0282746 (1399)	total: 35.8s	remaining: 1m 6s
-1600:	learn: 0.0154197	test: 0.0282114	best: 0.0282097 (1580)	total: 41s	remaining: 1m 1s
-1800:	learn: 0.0150269	test: 0.0281408	best: 0.0281334 (1764)	total: 46.3s	remaining: 56.5s
-2000:	learn: 0.0146725	test: 0.0281280	best: 0.0281195 (1870)	total: 51.4s	remaining: 51.4s
-2200:	learn: 0.0143322	test: 0.0280963	best: 0.0280959 (2177)	total: 56.6s	remaining: 46.3s
-2400:	learn: 0.0140058	test: 0.0281062	best: 0.0280891 (2218)	total: 1m 1s	remaining: 41.2s
-bestTest = 0.02808908067
-bestIteration = 2218
-Shrink model to first 2219 iterations.
-   seed123 fold 4: best_iter=2218  R²(raw)=0.95628
-0:	learn: 0.1364314	test: 0.1473696	best: 0.1473696 (0)	total: 28.2ms	remaining: 1m 52s
-200:	learn: 0.0209946	test: 0.0329406	best: 0.0329259 (199)	total: 5.59s	remaining: 1m 45s
-400:	learn: 0.0191797	test: 0.0308650	best: 0.0308650 (400)	total: 12.8s	remaining: 1m 54s
-600:	learn: 0.0181921	test: 0.0299653	best: 0.0299653 (599)	total: 19.7s	remaining: 1m 51s
-800:	learn: 0.0174387	test: 0.0296285	best: 0.0296285 (800)	total: 26.2s	remaining: 1m 44s
-1000:	learn: 0.0168067	test: 0.0294949	best: 0.0294836 (985)	total: 32.7s	remaining: 1m 37s
-1200:	learn: 0.0162885	test: 0.0293011	best: 0.0293011 (1200)	total: 38.2s	remaining: 1m 29s
-1400:	learn: 0.0158208	test: 0.0293042	best: 0.0292954 (1242)	total: 44.7s	remaining: 1m 22s
-1600:	learn: 0.0153844	test: 0.0292617	best: 0.0292617 (1600)	total: 52.2s	remaining: 1m 18s
-1800:	learn: 0.0149888	test: 0.0291999	best: 0.0291998 (1782)	total: 58.1s	remaining: 1m 10s
-2000:	learn: 0.0146296	test: 0.0291437	best: 0.0291404 (1949)	total: 1m 3s	remaining: 1m 3s
-2200:	learn: 0.0142957	test: 0.0290835	best: 0.0290805 (2165)	total: 1m 10s	remaining: 57.2s
-2400:	learn: 0.0139794	test: 0.0290268	best: 0.0290229 (2370)	total: 1m 17s	remaining: 51.4s
-2600:	learn: 0.0136714	test: 0.0290051	best: 0.0290027 (2587)	total: 1m 23s	remaining: 45s
-2800:	learn: 0.0133859	test: 0.0290022	best: 0.0289679 (2663)	total: 1m 31s	remaining: 39s
-bestTest = 0.02896789917
-bestIteration = 2663
-Shrink model to first 2664 iterations.
-   seed123 fold 5: best_iter=2663  R²(raw)=0.96389
-   seed123 OOF R²=0.96030
->> CatBoost (multi-seed mean) OOF R² (day-49, raw) = 0.96033  (score = 96.033)
+0:	learn: 0.1366025	test: 0.1447241	best: 0.1447241 (0)	total: 25.1ms	remaining: 1m 40s
+200:	learn: 0.0215787	test: 0.0300345	best: 0.0300343 (198)	total: 5.17s	remaining: 1m 37s
+400:	learn: 0.0194295	test: 0.0294024	best: 0.0294024 (400)	total: 10.2s	remaining: 1m 31s
+600:	learn: 0.0181883	test: 0.0291614	best: 0.0291614 (600)	total: 15.7s	remaining: 1m 28s
+800:	learn: 0.0172354	test: 0.0289990	best: 0.0289906 (794)	total: 22.6s	remaining: 1m 30s
+1000:	learn: 0.0165099	test: 0.0288999	best: 0.0288784 (977)	total: 29.8s	remaining: 1m 29s
+1200:	learn: 0.0158948	test: 0.0287943	best: 0.0287856 (1172)	total: 36.5s	remaining: 1m 25s
+1400:	learn: 0.0153836	test: 0.0287483	best: 0.0287417 (1380)	total: 41.7s	remaining: 1m 17s
+1600:	learn: 0.0149101	test: 0.0286816	best: 0.0286801 (1584)	total: 46.8s	remaining: 1m 10s
+1800:	learn: 0.0144993	test: 0.0286199	best: 0.0286126 (1790)	total: 51.9s	remaining: 1m 3s
+2000:	learn: 0.0141063	test: 0.0285307	best: 0.0285307 (2000)	total: 57s	remaining: 56.9s
+2200:	learn: 0.0137535	test: 0.0284554	best: 0.0284547 (2158)	total: 1m 2s	remaining: 50.9s
+2400:	learn: 0.0134025	test: 0.0284197	best: 0.0284197 (2400)	total: 1m 7s	remaining: 44.9s
+2600:	learn: 0.0130995	test: 0.0283882	best: 0.0283857 (2574)	total: 1m 12s	remaining: 39.1s
+2800:	learn: 0.0128007	test: 0.0283926	best: 0.0283746 (2699)	total: 1m 18s	remaining: 33.4s
+bestTest = 0.02837464481
+bestIteration = 2699
+Shrink model to first 2700 iterations.
+   seed123 fold 1: best_iter=2699  R²(raw)=0.96470
+0:	learn: 0.1371939	test: 0.1351086	best: 0.1351086 (0)	total: 27.1ms	remaining: 1m 48s
+200:	learn: 0.0216710	test: 0.0323428	best: 0.0323428 (200)	total: 5.11s	remaining: 1m 36s
+400:	learn: 0.0195044	test: 0.0313963	best: 0.0313568 (397)	total: 10.1s	remaining: 1m 31s
+600:	learn: 0.0182032	test: 0.0311716	best: 0.0311585 (589)	total: 15.2s	remaining: 1m 25s
+800:	learn: 0.0172989	test: 0.0310332	best: 0.0310328 (799)	total: 20.2s	remaining: 1m 20s
+1000:	learn: 0.0165839	test: 0.0309418	best: 0.0309409 (996)	total: 25.3s	remaining: 1m 15s
+1200:	learn: 0.0159755	test: 0.0308077	best: 0.0308077 (1200)	total: 30.4s	remaining: 1m 10s
+1400:	learn: 0.0154510	test: 0.0308250	best: 0.0308011 (1232)	total: 35.7s	remaining: 1m 6s
+bestTest = 0.03080106611
+bestIteration = 1232
+Shrink model to first 1233 iterations.
+   seed123 fold 2: best_iter=1232  R²(raw)=0.95252
+0:	learn: 0.1370363	test: 0.1378643	best: 0.1378643 (0)	total: 25.1ms	remaining: 1m 40s
+200:	learn: 0.0215217	test: 0.0280866	best: 0.0280866 (200)	total: 4.95s	remaining: 1m 33s
+400:	learn: 0.0193988	test: 0.0274860	best: 0.0274860 (400)	total: 9.86s	remaining: 1m 28s
+600:	learn: 0.0181566	test: 0.0274274	best: 0.0274000 (457)	total: 15.2s	remaining: 1m 26s
+800:	learn: 0.0172567	test: 0.0274127	best: 0.0273722 (633)	total: 20.7s	remaining: 1m 22s
+bestTest = 0.02737221696
+bestIteration = 633
+Shrink model to first 634 iterations.
+   seed123 fold 3: best_iter=633  R²(raw)=0.96374
+0:	learn: 0.1375742	test: 0.1284416	best: 0.1284416 (0)	total: 24.3ms	remaining: 1m 37s
+200:	learn: 0.0216022	test: 0.0308598	best: 0.0308585 (198)	total: 4.99s	remaining: 1m 34s
+400:	learn: 0.0195128	test: 0.0300047	best: 0.0300047 (400)	total: 10s	remaining: 1m 29s
+600:	learn: 0.0182758	test: 0.0297090	best: 0.0297087 (599)	total: 15.1s	remaining: 1m 25s
+800:	learn: 0.0173442	test: 0.0296578	best: 0.0296578 (800)	total: 20.2s	remaining: 1m 20s
+1000:	learn: 0.0166001	test: 0.0295774	best: 0.0295774 (1000)	total: 25.4s	remaining: 1m 16s
+1200:	learn: 0.0159957	test: 0.0294168	best: 0.0294137 (1190)	total: 30.6s	remaining: 1m 11s
+1400:	learn: 0.0154619	test: 0.0293865	best: 0.0293794 (1369)	total: 35.7s	remaining: 1m 6s
+bestTest = 0.02937937217
+bestIteration = 1369
+Shrink model to first 1370 iterations.
+   seed123 fold 4: best_iter=1369  R²(raw)=0.95217
+0:	learn: 0.1365434	test: 0.1460933	best: 0.1460933 (0)	total: 34.4ms	remaining: 2m 17s
+200:	learn: 0.0216889	test: 0.0321237	best: 0.0321237 (200)	total: 4.96s	remaining: 1m 33s
+400:	learn: 0.0194926	test: 0.0306212	best: 0.0306212 (400)	total: 9.95s	remaining: 1m 29s
+600:	learn: 0.0182369	test: 0.0303817	best: 0.0303694 (577)	total: 14.9s	remaining: 1m 24s
+800:	learn: 0.0172873	test: 0.0301850	best: 0.0301850 (800)	total: 19.8s	remaining: 1m 19s
+1000:	learn: 0.0165591	test: 0.0300545	best: 0.0300516 (983)	total: 24.9s	remaining: 1m 14s
+1200:	learn: 0.0159356	test: 0.0299287	best: 0.0299284 (1192)	total: 30s	remaining: 1m 9s
+1400:	learn: 0.0154025	test: 0.0297908	best: 0.0297896 (1399)	total: 35.2s	remaining: 1m 5s
+1600:	learn: 0.0149131	test: 0.0297330	best: 0.0297320 (1599)	total: 40.4s	remaining: 1m
+1800:	learn: 0.0144815	test: 0.0296533	best: 0.0296528 (1799)	total: 45.5s	remaining: 55.6s
+2000:	learn: 0.0141016	test: 0.0295768	best: 0.0295726 (1978)	total: 50.7s	remaining: 50.7s
+2200:	learn: 0.0137390	test: 0.0295435	best: 0.0295427 (2197)	total: 55.9s	remaining: 45.7s
+2400:	learn: 0.0134236	test: 0.0294828	best: 0.0294803 (2390)	total: 1m 1s	remaining: 40.7s
+2600:	learn: 0.0131125	test: 0.0294460	best: 0.0294404 (2548)	total: 1m 6s	remaining: 35.7s
+2800:	learn: 0.0128227	test: 0.0294050	best: 0.0294044 (2788)	total: 1m 11s	remaining: 30.7s
+3000:	learn: 0.0125481	test: 0.0293813	best: 0.0293813 (3000)	total: 1m 17s	remaining: 25.7s
+3200:	learn: 0.0122910	test: 0.0293586	best: 0.0293573 (3150)	total: 1m 22s	remaining: 20.6s
+3400:	learn: 0.0120464	test: 0.0293551	best: 0.0293385 (3307)	total: 1m 27s	remaining: 15.5s
+3600:	learn: 0.0118102	test: 0.0293124	best: 0.0293124 (3600)	total: 1m 33s	remaining: 10.3s
+3800:	learn: 0.0115777	test: 0.0292848	best: 0.0292844 (3787)	total: 1m 38s	remaining: 5.15s
+3999:	learn: 0.0113579	test: 0.0292827	best: 0.0292777 (3862)	total: 1m 43s	remaining: 0us
+bestTest = 0.02927766111
+bestIteration = 3862
+Shrink model to first 3863 iterations.
+   seed123 fold 5: best_iter=3862  R²(raw)=0.96311
+   seed123 OOF R²=0.95970
+>> CatBoost (multi-seed mean) OOF R² (day-49, raw) = 0.96092  (score = 96.092)
 >> 5-fold XGBoost training
-  fold 1: best_iter=479  R²(raw)=0.96297
-  fold 2: best_iter=887  R²(raw)=0.95215
-  fold 3: best_iter=186  R²(raw)=0.95944
-  fold 4: best_iter=594  R²(raw)=0.95118
-  fold 5: best_iter=479  R²(raw)=0.96638
->> XGBoost OOF R² (day-49, raw) = 0.95896  (score = 95.896)
+  fold 1: best_iter=616  R²(raw)=0.96241
+  fold 2: best_iter=385  R²(raw)=0.95492
+  fold 3: best_iter=116  R²(raw)=0.96219
+  fold 4: best_iter=286  R²(raw)=0.95492
+  fold 5: best_iter=263  R²(raw)=0.96532
+>> XGBoost OOF R² (day-49, raw) = 0.96032  (score = 96.032)
 >> 5-fold LightGBM training (GPU)
+  fold 1: best_iter=592  R²(raw)=0.96134
+  fold 2: best_iter=293  R²(raw)=0.95091
+  fold 3: best_iter=126  R²(raw)=0.96251
+  fold 4: best_iter=411  R²(raw)=0.95448
+  fold 5: best_iter=523  R²(raw)=0.96706
+>> LightGBM OOF R² (day-49, raw) = 0.95969  (score = 95.969)
+>> 5-fold HistGBM training (CPU)
+  fold 1: n_iter=1500  R²(raw)=0.95908
+  fold 2: n_iter=1500  R²(raw)=0.94987
+  fold 3: n_iter=1500  R²(raw)=0.96008
+  fold 4: n_iter=1500  R²(raw)=0.94912
+  fold 5: n_iter=1500  R²(raw)=0.96370
+>> HistGBM OOF R² (day-49, raw) = 0.95686  (score = 95.686)
+>> 5-fold ExtraTrees training (CPU)
+  fold 1: R²(raw)=0.96532
+  fold 2: R²(raw)=0.95707
+  fold 3: R²(raw)=0.96452
+  fold 4: R²(raw)=0.95808
+  fold 5: R²(raw)=0.96774
+>> ExtraTrees OOF R² (day-49, raw) = 0.96290
+>> 5-fold k-NN training
+  fold 1: R²(raw)=0.86721
+  fold 2: R²(raw)=0.84010
+  fold 3: R²(raw)=0.84555
+  fold 4: R²(raw)=0.84654
+  fold 5: R²(raw)=0.86209
+>> k-NN OOF R² (day-49, raw) = 0.85317
+>> single-model R²: {'cb': 0.96092, 'xgb': 0.96032, 'lgb': 0.95969, 'hgb': 0.95686, 'et': 0.9629, 'knn': 0.85317}
+>> Ridge meta weights = {'cb': np.float64(0.2341), 'xgb': np.float64(0.1939), 'lgb': np.float64(0.1808), 'hgb': np.float64(0.1431), 'et': np.float64(0.2593), 'knn': np.float64(0.0)}
+>> Ridge-stacked OOF R² = 0.96298  (score = 96.298)
+>> saved artifacts.npz
+>> wrote submission.csv shape = (41778, 2)
+   Index    demand
+0      0  0.060766
+1      1  0.017497
+2      2  0.025550
+3      3  0.034612
+4      4  0.068354
