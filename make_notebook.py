@@ -3,6 +3,8 @@ import json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 src = open(os.path.join(HERE, "solution.py"), encoding="utf-8").read()
+v9_path = os.path.join(HERE, "v9_chronos.py")
+v9_src = open(v9_path, encoding="utf-8").read() if os.path.exists(v9_path) else None
 
 # Split into logical sections on the banner comments
 section_re = re.compile(
@@ -50,6 +52,13 @@ for title, code in chunks:
         continue
     cells.append(make_md(f"## {title}"))
     cells.append(make_code(code + "\n"))
+
+if v9_src:
+    cells.append(make_md("## v9 — Chronos-Bolt time-series forecast\n\n"
+                         "Loads the artifacts produced above and adds a 7th stack member: "
+                         "an Amazon Chronos-Bolt-small zero-shot forecast per geohash. "
+                         "The final Ridge meta-learner refits over all 7 base models."))
+    cells.append(make_code(v9_src + "\n"))
 
 nb = {
     "cells": cells,
