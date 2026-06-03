@@ -9,6 +9,8 @@ v13_path = os.path.join(HERE, "v13_residual.py")
 v13_src = open(v13_path, encoding="utf-8").read() if os.path.exists(v13_path) else None
 v15_path = os.path.join(HERE, "v15_pseudo.py")
 v15_src = open(v15_path, encoding="utf-8").read() if os.path.exists(v15_path) else None
+v16_path = os.path.join(HERE, "v16_nn.py")
+v16_src = open(v16_path, encoding="utf-8").read() if os.path.exists(v16_path) else None
 
 # Split into logical sections on the banner comments
 section_re = re.compile(
@@ -79,6 +81,16 @@ if v15_src:
                          "DAYTIME hours that my honest CV cannot, while still being validated only on "
                          "real-labelled day-49 rows. Added as the 9th stack member; the Ridge meta refits."))
     cells.append(make_code(v15_src + "\n"))
+
+if v16_src:
+    cells.append(make_md("## v16 — PyTorch NN with categorical embeddings\n\n"
+                         "A custom MLP with embeddings for `geohash`, `hour`, and other categoricals + "
+                         "numeric features. Trained with the same 5-fold day-49 honest CV and sample "
+                         "weighting as the GBDT base models. Added as the 10th stack member. The Ridge "
+                         "meta-learner assigned it weight 0, indicating its predictions overlap too much "
+                         "with the trees to contribute uniquely — but it's documented here as a "
+                         "completeness check on alternative architectures."))
+    cells.append(make_code(v16_src + "\n"))
 
 nb = {
     "cells": cells,

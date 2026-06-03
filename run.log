@@ -1,68 +1,14 @@
->> loading data + artifacts + v13 submission as pseudo-labels
-   test rows with pseudo-label: 41778 / 41778
-   real day-49: 7872  pseudo (test): 41778  total: 49650
->> 5-fold pseudo-labeled CatBoost (real weight=1.0, pseudo weight=0.5, GPU)
-0:	learn: 0.1553415	test: 0.1450761	best: 0.1450761 (0)	total: 96.3ms	remaining: 6m 25s
-500:	learn: 0.0207833	test: 0.0364468	best: 0.0364468 (500)	total: 23.3s	remaining: 2m 42s
-1000:	learn: 0.0190485	test: 0.0353699	best: 0.0353632 (968)	total: 46s	remaining: 2m 17s
-1500:	learn: 0.0175298	test: 0.0341619	best: 0.0341618 (1493)	total: 1m 8s	remaining: 1m 54s
-2000:	learn: 0.0164757	test: 0.0333001	best: 0.0333001 (1999)	total: 1m 31s	remaining: 1m 31s
-2500:	learn: 0.0163398	test: 0.0331168	best: 0.0331155 (2370)	total: 1m 53s	remaining: 1m 8s
-bestTest = 0.03311546744
-bestIteration = 2370
-Shrink model to first 2371 iterations.
-   fold 1: best_iter=2370  R²(raw)=0.95192
-0:	learn: 0.1557702	test: 0.1368880	best: 0.1368880 (0)	total: 48.8ms	remaining: 3m 15s
-500:	learn: 0.0208264	test: 0.0346263	best: 0.0346263 (500)	total: 22s	remaining: 2m 33s
-1000:	learn: 0.0191120	test: 0.0323835	best: 0.0323835 (1000)	total: 42.8s	remaining: 2m 8s
-1500:	learn: 0.0173527	test: 0.0305054	best: 0.0305021 (1499)	total: 1m 4s	remaining: 1m 46s
-2000:	learn: 0.0168559	test: 0.0301492	best: 0.0301489 (1997)	total: 1m 25s	remaining: 1m 25s
-2500:	learn: 0.0166221	test: 0.0299331	best: 0.0299331 (2498)	total: 1m 46s	remaining: 1m 3s
-3000:	learn: 0.0163946	test: 0.0296622	best: 0.0296617 (2997)	total: 2m 9s	remaining: 43s
-3500:	learn: 0.0158893	test: 0.0292191	best: 0.0292115 (3488)	total: 2m 33s	remaining: 21.8s
-3999:	learn: 0.0157779	test: 0.0291382	best: 0.0291366 (3985)	total: 2m 58s	remaining: 0us
-bestTest = 0.02913657732
-bestIteration = 3985
-Shrink model to first 3986 iterations.
-   fold 2: best_iter=3985  R²(raw)=0.95752
-0:	learn: 0.1556854	test: 0.1384599	best: 0.1384599 (0)	total: 60.5ms	remaining: 4m 2s
-500:	learn: 0.0205843	test: 0.0349782	best: 0.0349771 (440)	total: 22.6s	remaining: 2m 37s
-bestTest = 0.03497705024
-bestIteration = 440
-Shrink model to first 441 iterations.
-   fold 3: best_iter=440  R²(raw)=0.94079
-0:	learn: 0.1560921	test: 0.1303088	best: 0.1303088 (0)	total: 49.3ms	remaining: 3m 17s
-500:	learn: 0.0202460	test: 0.0342071	best: 0.0342069 (492)	total: 21.9s	remaining: 2m 33s
-1000:	learn: 0.0185597	test: 0.0324454	best: 0.0324454 (980)	total: 42.5s	remaining: 2m 7s
-1500:	learn: 0.0174720	test: 0.0314646	best: 0.0314644 (1498)	total: 1m 2s	remaining: 1m 43s
-2000:	learn: 0.0164028	test: 0.0306878	best: 0.0306878 (1998)	total: 1m 27s	remaining: 1m 27s
-2500:	learn: 0.0158879	test: 0.0303661	best: 0.0303661 (2500)	total: 1m 52s	remaining: 1m 7s
-3000:	learn: 0.0152420	test: 0.0301273	best: 0.0301078 (2912)	total: 2m 17s	remaining: 45.6s
-bestTest = 0.03010782281
-bestIteration = 2912
-Shrink model to first 2913 iterations.
-   fold 4: best_iter=2912  R²(raw)=0.94977
-0:	learn: 0.1552268	test: 0.1477251	best: 0.1477251 (0)	total: 52.7ms	remaining: 3m 30s
-500:	learn: 0.0207725	test: 0.0356269	best: 0.0356269 (492)	total: 18.4s	remaining: 2m 8s
-1000:	learn: 0.0191915	test: 0.0335611	best: 0.0335605 (998)	total: 33.3s	remaining: 1m 39s
-1500:	learn: 0.0179037	test: 0.0322065	best: 0.0322054 (1485)	total: 56.2s	remaining: 1m 33s
-2000:	learn: 0.0175874	test: 0.0318630	best: 0.0318630 (2000)	total: 1m 14s	remaining: 1m 14s
-2500:	learn: 0.0171935	test: 0.0316107	best: 0.0316103 (2488)	total: 1m 36s	remaining: 57.7s
-3000:	learn: 0.0170044	test: 0.0314442	best: 0.0314442 (3000)	total: 1m 58s	remaining: 39.3s
-3500:	learn: 0.0165312	test: 0.0310430	best: 0.0310430 (3500)	total: 2m 20s	remaining: 20.1s
-3999:	learn: 0.0160690	test: 0.0307693	best: 0.0307693 (3999)	total: 2m 44s	remaining: 0us
-bestTest = 0.03076926889
-bestIteration = 3999
-   fold 5: best_iter=3999  R²(raw)=0.95926
->> Pseudo-CatBoost OOF R² (day-49 raw) = 0.95208  (score = 95.208)
->> single-model R²: {'cb': 0.96092, 'xgb': 0.96032, 'lgb': 0.95969, 'hgb': 0.95686, 'et': 0.9629, 'knn': 0.85317, 'chrS_50': 0.7885, 'residual': 0.94443, 'pseudo': 0.95208}
->> Ridge meta weights = {'cb': np.float64(0.2371), 'xgb': np.float64(0.1475), 'lgb': np.float64(0.1364), 'hgb': np.float64(0.0501), 'et': np.float64(0.2416), 'knn': np.float64(0.0), 'chrS_50': np.float64(0.0302), 'residual': np.float64(0.0), 'pseudo': np.float64(0.1677)}
->> Ridge-stacked OOF R² (9 models) = 0.96429  (score = 96.429)
->> wrote submission.csv shape = (41778, 2)
-   Index    demand
-0      0  0.056445
-1      1  0.018474
-2      2  0.023130
-3      3  0.033562
-4      4  0.065337
->> saved artifacts.npz
+>> loading data + current submission as pseudo-labels
+   pseudo-labels available: 41778 / 41778
+   day-49 real rows: 7872  pseudo test rows: 41778
+>> pseudo-labeled XGBoost (5-fold, GPU)
+   xgb fold 1: best_iter=499  R²=0.95930
+   xgb fold 2: best_iter=771  R²=0.96316
+   xgb fold 3: best_iter=702  R²=0.96099
+   xgb fold 4: best_iter=530  R²=0.95458
+   xgb fold 5: best_iter=515  R²=0.96326
+>> Pseudo-XGBoost OOF R² (day-49 raw) = 0.96046  (score = 96.046)
+>> pseudo-labeled LightGBM (5-fold, GPU)
+   lgb fold 1: best_iter=207  R²=0.95832
+   lgb fold 2: best_iter=779  R²=0.96381
+   lgb fold 3: best_iter=585  R²=0.95963
