@@ -5,6 +5,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 src = open(os.path.join(HERE, "solution.py"), encoding="utf-8").read()
 v9_path = os.path.join(HERE, "v9_chronos.py")
 v9_src = open(v9_path, encoding="utf-8").read() if os.path.exists(v9_path) else None
+v13_path = os.path.join(HERE, "v13_residual.py")
+v13_src = open(v13_path, encoding="utf-8").read() if os.path.exists(v13_path) else None
+v15_path = os.path.join(HERE, "v15_pseudo.py")
+v15_src = open(v15_path, encoding="utf-8").read() if os.path.exists(v15_path) else None
 
 # Split into logical sections on the banner comments
 section_re = re.compile(
@@ -56,9 +60,25 @@ for title, code in chunks:
 if v9_src:
     cells.append(make_md("## v9 — Chronos-Bolt time-series forecast\n\n"
                          "Loads the artifacts produced above and adds a 7th stack member: "
-                         "an Amazon Chronos-Bolt-small zero-shot forecast per geohash. "
-                         "The final Ridge meta-learner refits over all 7 base models."))
+                         "an Amazon Chronos-Bolt-small zero-shot forecast per geohash."))
     cells.append(make_code(v9_src + "\n"))
+
+if v13_src:
+    cells.append(make_md("## v13 — two-stage residual model\n\n"
+                         "Hard-codes the dominant signal `baseline = d48_same_ts` and trains a "
+                         "CatBoost on the cross-day delta `y - baseline`, using only day-49 train rows. "
+                         "Final pred = `baseline + delta`. This becomes the 8th stack member and "
+                         "the Ridge meta-learner refits over all 8 base models."))
+    cells.append(make_code(v13_src + "\n"))
+
+if v15_src:
+    cells.append(make_md("## v15 — pseudo-labelled day-49 model\n\n"
+                         "Uses v13 test predictions as pseudo-labels on the test rows, then trains a "
+                         "CatBoost on ~50k mixed `(real day-49 train + pseudo-labelled test)` examples — "
+                         "real rows get sample weight 1.0, pseudo rows 0.5. This lets the model see "
+                         "DAYTIME hours that my honest CV cannot, while still being validated only on "
+                         "real-labelled day-49 rows. Added as the 9th stack member; the Ridge meta refits."))
+    cells.append(make_code(v15_src + "\n"))
 
 nb = {
     "cells": cells,
