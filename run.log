@@ -1,22 +1,68 @@
->> loading artifacts
-   oof_stack shape: (7872, 7)  test_stack shape: (41778, 7)
->> baseline Ridge stack
-   Ridge OOF R² = 0.96403  (score = 96.403)
-   Ridge weights = {'cb': np.float64(0.3326), 'xgb': np.float64(0.1158), 'lgb': np.float64(0.0397), 'hgb': np.float64(0.0), 'et': np.float64(0.4834), 'knn': np.float64(0.0), 'chrS_50': np.float64(0.0379)}
->> XGBoost meta-learner (inner 5-fold CV over OOF stack)
-   meta-fold 1: best_iter=70  R²=0.96190
-   meta-fold 2: best_iter=88  R²=0.95533
-   meta-fold 3: best_iter=113  R²=0.96406
-   meta-fold 4: best_iter=89  R²=0.95603
-   meta-fold 5: best_iter=110  R²=0.96605
->> XGBoost meta-OOF R² = 0.96101  (score = 96.101)
->> Blending Ridge + XGB-meta on OOF
-   best Ridge-XGBmeta mix: w_ridge=1.000  OOF R²=0.96403  (score = 96.403)
->> winner: ridge_only  OOF R²=0.96403
->> wrote submission.csv shape = (41778, 2)
-   Index    demand
-0      0  0.056408
-1      1  0.016673
-2      2  0.028190
-3      3  0.033408
-4      4  0.065343
+>> loading data + v9 artifacts
+   train baseline NaN: 0
+   test baseline NaN:  0
+   day-49 train rows: 7872
+   delta stats — mean: 0.0402, std: 0.0916
+>> training 5-fold delta CatBoost on day-49 only (GPU)
+0:	learn: 0.0883563	test: 0.0902517	best: 0.0902517 (0)	total: 106ms	remaining: 5m 16s
+300:	learn: 0.0337320	test: 0.0381834	best: 0.0381813 (297)	total: 9.37s	remaining: 1m 24s
+600:	learn: 0.0304736	test: 0.0366645	best: 0.0366645 (600)	total: 18.7s	remaining: 1m 14s
+900:	learn: 0.0288948	test: 0.0359625	best: 0.0359625 (900)	total: 28s	remaining: 1m 5s
+1200:	learn: 0.0279944	test: 0.0356842	best: 0.0356714 (1139)	total: 37.3s	remaining: 55.8s
+1500:	learn: 0.0273799	test: 0.0355498	best: 0.0355369 (1333)	total: 46.2s	remaining: 46.1s
+1800:	learn: 0.0269670	test: 0.0354552	best: 0.0354343 (1757)	total: 54.6s	remaining: 36.3s
+2100:	learn: 0.0266612	test: 0.0354212	best: 0.0354042 (2081)	total: 1m 3s	remaining: 27.1s
+2400:	learn: 0.0262546	test: 0.0353411	best: 0.0353353 (2258)	total: 1m 13s	remaining: 18.2s
+bestTest = 0.035335272
+bestIteration = 2258
+Shrink model to first 2259 iterations.
+  delta fold 1: best_iter=2258  R²(delta)=0.85653
+0:	learn: 0.0897437	test: 0.0848413	best: 0.0848413 (0)	total: 33.5ms	remaining: 1m 40s
+300:	learn: 0.0342011	test: 0.0365400	best: 0.0365400 (300)	total: 9.37s	remaining: 1m 24s
+600:	learn: 0.0319276	test: 0.0355568	best: 0.0355568 (600)	total: 18.7s	remaining: 1m 14s
+900:	learn: 0.0302698	test: 0.0349262	best: 0.0349262 (900)	total: 28.6s	remaining: 1m 6s
+1200:	learn: 0.0297359	test: 0.0347651	best: 0.0347650 (1199)	total: 37.6s	remaining: 56.3s
+1500:	learn: 0.0287540	test: 0.0344309	best: 0.0344272 (1485)	total: 47.1s	remaining: 47s
+1800:	learn: 0.0279718	test: 0.0341745	best: 0.0341729 (1788)	total: 56.7s	remaining: 37.8s
+2100:	learn: 0.0275493	test: 0.0341382	best: 0.0341330 (2097)	total: 1m 5s	remaining: 28.1s
+2400:	learn: 0.0271043	test: 0.0340526	best: 0.0340519 (2397)	total: 1m 13s	remaining: 18.3s
+2700:	learn: 0.0266526	test: 0.0339447	best: 0.0339434 (2694)	total: 1m 19s	remaining: 8.83s
+2999:	learn: 0.0264026	test: 0.0338887	best: 0.0338884 (2998)	total: 1m 27s	remaining: 0us
+bestTest = 0.03388842962
+bestIteration = 2998
+Shrink model to first 2999 iterations.
+  delta fold 2: best_iter=2998  R²(delta)=0.84927
+0:	learn: 0.0881296	test: 0.0914864	best: 0.0914864 (0)	total: 30.6ms	remaining: 1m 31s
+300:	learn: 0.0337872	test: 0.0365552	best: 0.0365552 (300)	total: 9.57s	remaining: 1m 25s
+600:	learn: 0.0315860	test: 0.0352505	best: 0.0352495 (597)	total: 18.4s	remaining: 1m 13s
+900:	learn: 0.0299305	test: 0.0346860	best: 0.0346684 (897)	total: 27.5s	remaining: 1m 4s
+1200:	learn: 0.0286346	test: 0.0342384	best: 0.0342384 (1200)	total: 37.6s	remaining: 56.3s
+1500:	learn: 0.0277390	test: 0.0339791	best: 0.0339467 (1450)	total: 48.5s	remaining: 48.4s
+1800:	learn: 0.0271860	test: 0.0335778	best: 0.0335763 (1794)	total: 58.7s	remaining: 39.1s
+2100:	learn: 0.0267958	test: 0.0333823	best: 0.0333817 (2099)	total: 1m 7s	remaining: 28.9s
+2400:	learn: 0.0261116	test: 0.0331628	best: 0.0331596 (2385)	total: 1m 17s	remaining: 19.4s
+2700:	learn: 0.0257072	test: 0.0330320	best: 0.0330205 (2658)	total: 1m 28s	remaining: 9.79s
+2999:	learn: 0.0253834	test: 0.0329703	best: 0.0329658 (2959)	total: 1m 39s	remaining: 0us
+bestTest = 0.0329658429
+bestIteration = 2959
+Shrink model to first 2960 iterations.
+  delta fold 3: best_iter=2959  R²(delta)=0.87806
+0:	learn: 0.0901639	test: 0.0832065	best: 0.0832065 (0)	total: 32.2ms	remaining: 1m 36s
+300:	learn: 0.0336997	test: 0.0367874	best: 0.0367874 (300)	total: 10.7s	remaining: 1m 36s
+600:	learn: 0.0311781	test: 0.0356382	best: 0.0356382 (600)	total: 20.9s	remaining: 1m 23s
+900:	learn: 0.0295322	test: 0.0350380	best: 0.0350344 (896)	total: 30.9s	remaining: 1m 12s
+1200:	learn: 0.0286664	test: 0.0347215	best: 0.0347208 (1196)	total: 41.2s	remaining: 1m 1s
+1500:	learn: 0.0281122	test: 0.0344709	best: 0.0344709 (1500)	total: 50.7s	remaining: 50.6s
+1800:	learn: 0.0276568	test: 0.0342396	best: 0.0342396 (1800)	total: 1m	remaining: 40.5s
+2100:	learn: 0.0271613	test: 0.0340558	best: 0.0340541 (2096)	total: 1m 11s	remaining: 30.4s
+2400:	learn: 0.0267988	test: 0.0339505	best: 0.0339505 (2400)	total: 1m 20s	remaining: 20s
+2700:	learn: 0.0265290	test: 0.0339108	best: 0.0339085 (2665)	total: 1m 30s	remaining: 9.98s
+2999:	learn: 0.0261907	test: 0.0338601	best: 0.0338492 (2887)	total: 1m 41s	remaining: 0us
+bestTest = 0.03384919562
+bestIteration = 2887
+Shrink model to first 2888 iterations.
+  delta fold 4: best_iter=2887  R²(delta)=0.84432
+0:	learn: 0.0875495	test: 0.0939985	best: 0.0939985 (0)	total: 36.2ms	remaining: 1m 48s
+300:	learn: 0.0335692	test: 0.0387901	best: 0.0387851 (298)	total: 10.3s	remaining: 1m 32s
+600:	learn: 0.0305342	test: 0.0370239	best: 0.0370239 (600)	total: 19.6s	remaining: 1m 18s
+900:	learn: 0.0292763	test: 0.0363498	best: 0.0363498 (900)	total: 27.1s	remaining: 1m 3s
