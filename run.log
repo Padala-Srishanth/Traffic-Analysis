@@ -12,3 +12,17 @@
    lgb fold 1: best_iter=207  R²=0.95832
    lgb fold 2: best_iter=779  R²=0.96381
    lgb fold 3: best_iter=585  R²=0.95963
+   lgb fold 4: best_iter=376  R²=0.95263
+   lgb fold 5: best_iter=505  R²=0.96331
+>> Pseudo-LightGBM OOF R² (day-49 raw) = 0.95978  (score = 95.978)
+>> single-model R²: {'cb': 0.96092, 'xgb': 0.96032, 'lgb': 0.95969, 'hgb': 0.95686, 'et': 0.9629, 'knn': 0.85317, 'chrS_50': 0.7885, 'residual': 0.94443, 'pseudo': 0.95208, 'nn': 0.93354, 'pseudoXGB': 0.96046, 'pseudoLGB': 0.95978}
+>> Ridge meta weights = {'cb': np.float64(0.1556), 'xgb': np.float64(0.1149), 'lgb': np.float64(0.1159), 'hgb': np.float64(0.0652), 'et': np.float64(0.1495), 'knn': np.float64(0.0), 'chrS_50': np.float64(0.0311), 'residual': np.float64(0.0), 'pseudo': np.float64(0.0536), 'nn': np.float64(0.0), 'pseudoXGB': np.float64(0.17), 'pseudoLGB': np.float64(0.1546)}
+>> Ridge-stacked OOF R² (12 models) = 0.96533  (score = 96.533)
+>> wrote submission.csv shape = (41778, 2)
+   Index    demand
+0      0  0.055053
+1      1  0.017986
+2      2  0.022910
+3      3  0.033649
+4      4  0.066412
+>> saved artifacts.npz

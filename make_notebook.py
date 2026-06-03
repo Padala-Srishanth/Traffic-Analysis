@@ -11,6 +11,8 @@ v15_path = os.path.join(HERE, "v15_pseudo.py")
 v15_src = open(v15_path, encoding="utf-8").read() if os.path.exists(v15_path) else None
 v16_path = os.path.join(HERE, "v16_nn.py")
 v16_src = open(v16_path, encoding="utf-8").read() if os.path.exists(v16_path) else None
+v17_path = os.path.join(HERE, "v17_pseudo_multi.py")
+v17_src = open(v17_path, encoding="utf-8").read() if os.path.exists(v17_path) else None
 
 # Split into logical sections on the banner comments
 section_re = re.compile(
@@ -91,6 +93,15 @@ if v16_src:
                          "with the trees to contribute uniquely — but it's documented here as a "
                          "completeness check on alternative architectures."))
     cells.append(make_code(v16_src + "\n"))
+
+if v17_src:
+    cells.append(make_md("## v17 — pseudo-labelled XGBoost + LightGBM\n\n"
+                         "Extends v15's pseudo-labeling to two more model families. Trains separate "
+                         "XGBoost and LightGBM models on `(day-49 train + pseudo-labelled test)` with "
+                         "real-row weight 1.0 and pseudo-row weight 0.5. Both gave the Ridge meta-learner "
+                         "the highest single-model weights it has ever assigned (pseudo-XGB 0.17, "
+                         "pseudo-LGB 0.155), lifting stacked OOF from 0.9643 to 0.9653."))
+    cells.append(make_code(v17_src + "\n"))
 
 nb = {
     "cells": cells,
