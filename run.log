@@ -66,3 +66,4 @@ Shrink model to first 2888 iterations.
 300:	learn: 0.0335692	test: 0.0387901	best: 0.0387851 (298)	total: 10.3s	remaining: 1m 32s
 600:	learn: 0.0305342	test: 0.0370239	best: 0.0370239 (600)	total: 19.6s	remaining: 1m 18s
 900:	learn: 0.0292763	test: 0.0363498	best: 0.0363498 (900)	total: 27.1s	remaining: 1m 3s
+1200:	learn: 0.0281653	test: 0.0357343	best: 0.0357301 (1195)	total: 34.4s	remaining: 51.5s
