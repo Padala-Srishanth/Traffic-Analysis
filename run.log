@@ -1,36 +1,22 @@
->> loading data + v8 artifacts
-   v8 artifact keys: ['oof_cb', 'oof_xgb', 'oof_lgb', 'oof_hgb', 'oof_et', 'oof_knn', 'pred_cb', 'pred_xgb', 'pred_lgb', 'pred_hgb', 'pred_et', 'pred_knn', 'y_raw', 'day49_idx', 'meta_coef']
-   loaded oof + pred arrays  shape=(77299,)  test_shape=(41778,)
->> building per-geohash day-48 series
-   1259 unique geohashes
-   day48 series NaN count: 51437, day49 known NaN count: 3459
->> loading Chronos-Bolt-small on GPU
-   model on device: cuda:0
->> Chronos OOF forecasts (day-49 tslots 0..8 from day-48 context)
-     chronos batch 1/20  shape=torch.Size([64, 9, 9])
-     chronos batch 5/20  shape=torch.Size([64, 9, 9])
-     chronos batch 9/20  shape=torch.Size([64, 9, 9])
-     chronos batch 13/20  shape=torch.Size([64, 9, 9])
-     chronos batch 17/20  shape=torch.Size([64, 9, 9])
-   OOF Chronos time: 1.6s, shape: (1259, 9)
->> Chronos TEST forecasts (day-49 tslots 9..95 from full context)
-     chronos batch 1/20  shape=torch.Size([64, 9, 87])
-     chronos batch 5/20  shape=torch.Size([64, 9, 87])
-     chronos batch 9/20  shape=torch.Size([64, 9, 87])
-     chronos batch 13/20  shape=torch.Size([64, 9, 87])
-     chronos batch 17/20  shape=torch.Size([64, 9, 87])
-   TEST Chronos time: 2.6s, shape: (1259, 87)
->> mapping Chronos forecasts to row-level OOF and test predictions
-   OOF non-NaN: 7872
->> Chronos single-model OOF R² (day-49) = 0.78850  (score = 78.850)
->> Ridge stacking with 7 base models
->> Ridge meta weights = {'cb': np.float64(0.3326), 'xgb': np.float64(0.1158), 'lgb': np.float64(0.0397), 'hgb': np.float64(0.0), 'et': np.float64(0.4834), 'knn': np.float64(0.0), 'chr': np.float64(0.0379)}
->> Ridge-stacked OOF R² (7 models) = 0.96403  (score = 96.403)
+>> loading artifacts
+   oof_stack shape: (7872, 7)  test_stack shape: (41778, 7)
+>> baseline Ridge stack
+   Ridge OOF R² = 0.96403  (score = 96.403)
+   Ridge weights = {'cb': np.float64(0.3326), 'xgb': np.float64(0.1158), 'lgb': np.float64(0.0397), 'hgb': np.float64(0.0), 'et': np.float64(0.4834), 'knn': np.float64(0.0), 'chrS_50': np.float64(0.0379)}
+>> XGBoost meta-learner (inner 5-fold CV over OOF stack)
+   meta-fold 1: best_iter=70  R²=0.96190
+   meta-fold 2: best_iter=88  R²=0.95533
+   meta-fold 3: best_iter=113  R²=0.96406
+   meta-fold 4: best_iter=89  R²=0.95603
+   meta-fold 5: best_iter=110  R²=0.96605
+>> XGBoost meta-OOF R² = 0.96101  (score = 96.101)
+>> Blending Ridge + XGB-meta on OOF
+   best Ridge-XGBmeta mix: w_ridge=1.000  OOF R²=0.96403  (score = 96.403)
+>> winner: ridge_only  OOF R²=0.96403
 >> wrote submission.csv shape = (41778, 2)
    Index    demand
 0      0  0.056408
 1      1  0.016673
-2      2  0.028189
+2      2  0.028190
 3      3  0.033408
 4      4  0.065343
->> saved artifacts.npz (with Chronos)
