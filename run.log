@@ -1,28 +1,23 @@
->> loading data + current submission as pseudo-labels
-   pseudo-labels available: 41778 / 41778
-   day-49 real rows: 7872  pseudo test rows: 41778
->> pseudo-labeled XGBoost (5-fold, GPU)
-   xgb fold 1: best_iter=499  R²=0.95930
-   xgb fold 2: best_iter=771  R²=0.96316
-   xgb fold 3: best_iter=702  R²=0.96099
-   xgb fold 4: best_iter=530  R²=0.95458
-   xgb fold 5: best_iter=515  R²=0.96326
->> Pseudo-XGBoost OOF R² (day-49 raw) = 0.96046  (score = 96.046)
->> pseudo-labeled LightGBM (5-fold, GPU)
-   lgb fold 1: best_iter=207  R²=0.95832
-   lgb fold 2: best_iter=779  R²=0.96381
-   lgb fold 3: best_iter=585  R²=0.95963
-   lgb fold 4: best_iter=376  R²=0.95263
-   lgb fold 5: best_iter=505  R²=0.96331
->> Pseudo-LightGBM OOF R² (day-49 raw) = 0.95978  (score = 95.978)
->> single-model R²: {'cb': 0.96092, 'xgb': 0.96032, 'lgb': 0.95969, 'hgb': 0.95686, 'et': 0.9629, 'knn': 0.85317, 'chrS_50': 0.7885, 'residual': 0.94443, 'pseudo': 0.95208, 'nn': 0.93354, 'pseudoXGB': 0.96046, 'pseudoLGB': 0.95978}
->> Ridge meta weights = {'cb': np.float64(0.1556), 'xgb': np.float64(0.1149), 'lgb': np.float64(0.1159), 'hgb': np.float64(0.0652), 'et': np.float64(0.1495), 'knn': np.float64(0.0), 'chrS_50': np.float64(0.0311), 'residual': np.float64(0.0), 'pseudo': np.float64(0.0536), 'nn': np.float64(0.0), 'pseudoXGB': np.float64(0.17), 'pseudoLGB': np.float64(0.1546)}
->> Ridge-stacked OOF R² (12 models) = 0.96533  (score = 96.533)
->> wrote submission.csv shape = (41778, 2)
+>> loading data + day-48/49 matrices
+>> fitting damped Holt's per geohash on residuals R(0..8) -> forecast R(9..95)
+   Holt fits: succeeded 1078, fallback 181  time=34.8s
+>> Holt residual model OOF R² (day-49 morning) = 1.00000
+>> Ridge weights: {'cb': np.float64(0.0281), 'xgb': np.float64(0.0075), 'lgb': np.float64(0.0072), 'hgb': np.float64(0.0), 'et': np.float64(0.0259), 'knn': np.float64(0.0), 'chrS_50': np.float64(0.0), 'residual': np.float64(0.0), 'pseudo': np.float64(0.0021), 'nn': np.float64(0.0), 'holt': np.float64(0.9349)}
+>> v32 raw OOF R² = 0.99981
+   w=2 b=0.5: OOF R²=0.99629
+   w=2 b=0.75: OOF R²=0.99246
+   w=2 b=1.0: OOF R²=0.98723
+   w=3 b=0.5: OOF R²=0.99548
+   w=3 b=0.75: OOF R²=0.99076
+   w=3 b=1.0: OOF R²=0.98434
+   w=4 b=0.5: OOF R²=0.99421
+   w=4 b=0.75: OOF R²=0.98800
+   w=4 b=1.0: OOF R²=0.97952
+>> winner: raw  OOF R²=0.99981
+>> wrote submission.csv (41778, 2)
    Index    demand
-0      0  0.055053
-1      1  0.017986
-2      2  0.022910
-3      3  0.033649
-4      4  0.066412
->> saved artifacts.npz
+0      0  0.022895
+1      1  0.017937
+2      2  0.029217
+3      3  0.066541
+4      4  0.126309
